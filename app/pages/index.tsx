@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { Roboto } from '@next/font/google'
+import HeaderSearcher from '@/components/headerSearcher'
 
 const roboto = Roboto({ 
   weight: ['400', '500', '700'],
@@ -16,7 +17,7 @@ export default function Home() {
         <link rel="icon" data-head-react="true" href="https://http2.mlstatic.com/frontend-assets/ml-web-navigation/ui-navigation/5.21.22/mercadolibre/favicon.svg" />
       </Head>
       <main className={roboto.className}>
-          {/* content */}
+          <HeaderSearcher />
       </main>
     </>
   )
