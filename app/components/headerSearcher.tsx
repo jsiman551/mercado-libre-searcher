@@ -1,4 +1,8 @@
-import React, { KeyboardEvent, MouseEvent, useRef } from "react";
+import React, {
+  MouseEvent,
+  useContext,
+  useRef,
+} from "react";
 import Image from "next/image";
 import { 
   Header, 
@@ -6,27 +10,32 @@ import {
   SearchButton, 
   SearchInput,
 } from "@/constants/styles";
+import { setSearchDataResult } from "@/api";
+import { ApiContext } from "@/pages";
 
 const HeaderSearcher = () => {
   /* search input value reference */
-  const searchInputRef = useRef<HTMLInputElement>(null)
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const contextValue = useContext(ApiContext);
+  const {
+    setSearchResultData,
+    setLoadingState,
+  } = contextValue;
 
-  const onSearchAction = (event: KeyboardEvent<HTMLInputElement> | MouseEvent<HTMLButtonElement>):void => {
+  const onSearchAction = async (event: MouseEvent<HTMLButtonElement>):Promise<void> => {
+    event.preventDefault();
     const inputValue = searchInputRef.current?.value || ""
     /* there must be a value in the search input */
     if(inputValue) {
-      /* let typescript knows what event type is dealing with (keyboard or mouse) */
-      if ('key' in event) {
-        const inputEvent = event as React.KeyboardEvent<HTMLInputElement>;
-        const { key } = inputEvent;
-        /* search for items only if pressed button was Enter */
-        if (key === "Enter") {
-          console.log(inputValue)
+        /* activate loading state */
+        setLoadingState(true)
+        const searchData = await setSearchDataResult(inputValue)
+        if (searchData) {
+          setSearchResultData(searchData)
+          /* deactivate loading state */
+          setLoadingState(false)
         }
-      } else {
-        console.log(inputValue)
       }
-    }
   }
 
     return (
@@ -39,11 +48,11 @@ const HeaderSearcher = () => {
           />
           <HeaderElementsContainer>
             <SearchInput 
-              ref={searchInputRef} 
-              onKeyDown={(e) => onSearchAction(e)} 
+              ref={searchInputRef}
             />
             <SearchButton 
               onClick={(e) => onSearchAction(e)}
+              type="submit"
             >
               <Image 
                 src="/search-icon.svg" 

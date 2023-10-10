@@ -5,18 +5,17 @@ import styled from "styled-components";
 /* Header where searcher is */
 export const Header = styled.header`
   background: #FEE600;
-  box-shadow: 0 1px 0 0 rgba(0,0,0,.1);
   display: flex;
   justify-content: center;
-  padding: 0.5rem;
+  padding: 0.6rem;
   align-items: center;
   @media (max-width: 767.9px) {
     justify-content: space-around;
   }
 `;
 
-/* Header elements container */
-export const HeaderElementsContainer = styled.div`
+/* Header elements container (form) */
+export const HeaderElementsContainer = styled.form`
     display: flex;
     align-items: center;
     width: 100%;
@@ -54,4 +53,21 @@ export const SearchButton = styled.button`
     border-bottom-right-radius: 4px;
     padding-top: 4px;
     cursor: pointer;
+`;
+
+/************styles for articles list section**************/
+/* container for empty results */
+export const EmptyResultsContainer = styled.div`
+    padding: 2rem;
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4rem;
+    background: white;
+    border-radius: 4px;
+`;
+
+/* message for empty results */
+export const EmptyResultsText = styled.p`
+    text-align: center;
 `;
