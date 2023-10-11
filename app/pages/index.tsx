@@ -3,8 +3,13 @@ import Head from 'next/head'
 import { Roboto } from '@next/font/google'
 import HeaderSearcher from '@/components/headerSearcher'
 import EmptyState from '@/components/emptyState';
-import { contextObjectType } from '@/constants/types';
+import {
+  contextObjectType,
+  productObjectType,
+} from '@/constants/types';
 import { contextMockData } from '@/constants';
+import { ProductListContainer } from '@/constants/styles';
+import ProductElement from '@/components/productElement';
 
 const roboto = Roboto({ 
   weight: ['400', '500', '700'],
@@ -55,6 +60,32 @@ export default function Home() {
               ? <EmptyState 
                   message="Obteniendo resultados para tu b&uacute;squeda..." 
                 />
+              : null
+            }
+            {searchResultData?.length && !loadingState
+              ? <ProductListContainer>
+                {searchResultData.map((product: productObjectType, index: number) => {
+                  const { 
+                    thumbnail,
+                    title,
+                    price,
+                    shipping,
+                    address,
+                    condition,
+                  } = product;
+                  return (
+                    <ProductElement 
+                      thumbnail={thumbnail || ""} 
+                      title={title || ""} 
+                      price={price || 0} 
+                      shipping={shipping || { free_shipping: false }} 
+                      address={address || { state_name: "", city_name: "" }}
+                      condition={condition || ""}
+                      key={index} 
+                    />
+                  )
+                })}
+                </ProductListContainer>
               : null
             }
         </main>
