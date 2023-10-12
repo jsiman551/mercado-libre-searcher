@@ -1,8 +1,19 @@
+import { RefObject } from "react";
+
+type sortOptionsObjectType = {
+  id?: number,
+  description?: string,
+  value?: string,
+};
+
 export type contextObjectType = {
     searchResultData: object[] | null,
     loadingState: boolean,
+    sortOption: sortOptionsObjectType,
+    searchInputRef: RefObject<HTMLInputElement>,
     setSearchResultData: (arg0: object[]) => void,
     setLoadingState: (arg0: boolean) => void,
+    setSortOption: (arg0: object) => void,
   };
 
 export type productObjectType = {
@@ -18,3 +29,9 @@ export type productObjectType = {
     },
     condition?: string,
   }
+
+export type sortOptionsType = {
+  id?: number,
+  description?: string,
+  value?: string,
+}

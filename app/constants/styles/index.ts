@@ -1,7 +1,7 @@
-/* constants for styling UI */
+/* Constants For Styling UI */
 import styled from "styled-components";
 
-/************styles for header section**************/
+/************Styles For Header Section**************/
 /* Header where searcher is */
 export const Header = styled.header`
   background: #FEE600;
@@ -55,7 +55,7 @@ export const SearchButton = styled.button`
     cursor: pointer;
 `;
 
-/************styles for articles list section**************/
+/************Styles For Articles List Section**************/
 /* container for empty results */
 export const EmptyResultsContainer = styled.div`
     padding: 2rem;
@@ -80,7 +80,7 @@ export const ProductListContainer = styled.div`
     max-width: 61%;
     margin-right: auto;
     margin-left: auto;
-    margin-top: 3rem;
+    margin-top: 1rem;
     margin-bottom: 3rem;
     @media (max-width: 1279.9px) {
         max-width: 80%;
@@ -91,7 +91,7 @@ export const ProductListContainer = styled.div`
 export const ProductElementContainer = styled.div`
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid #F4F4F4;
+    border-bottom: 2px solid #F4F4F4;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     &:last-child {
@@ -155,7 +155,7 @@ export const ProductLocationText = styled.p`
     }
 `;
 
-/*****free shipping icon styles******/
+/*****Free Shipping Icon Styles******/
 export const FreeShippingIconContainer = styled.span`
     background: #2EC866;
     border-radius: 50%;
@@ -168,4 +168,112 @@ export const FreeShippingIconContainer = styled.span`
 export const FreeShippingIcon = styled.img`
     margin-left: 4px;
     margin-bottom: 7px;
+`;
+
+/**************Sort Selector Styles*****************/
+/* Selector Container */
+export const SortSelectorContainer = styled.div`
+    display: flex;
+    margin-top: 1rem;
+    max-width: 61%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: end;
+    align-items: center;
+    @media (max-width: 1279px) {
+        max-width: 80%;
+    }
+`;
+
+/* Selector Label */
+export const SortSelectorLabel = styled.div`
+    margin-right: 0.40rem;
+    font-weight: 500;
+    font-size: 0.875em;  
+`;
+
+/* Selector Text */
+export const SortSelectorOptionText = styled.div`
+    display: flex;
+    align-items: center;
+    font-size: 0.875em;
+    cursor: pointer;
+    &:hover {
+        color: #3483fa;
+    }
+`;
+
+/* Selector Arrow Icon */
+export const SortSelectorArrowIcon = styled.img<{ $active: boolean; }>`
+    transform: ${props => props.$active ? "rotate(180deg)" : "rotate(0deg)"};
+    transition: transform .2s ease-out;
+    margin-top: 3px;
+    margin-left: 2px;
+`;
+
+/* Selector Elements Container */
+export const SortSelectorElementContainer = styled.ul`
+    border-collapse: collapse;
+    box-sizing: border-box;
+    border-radius: .375em;
+    position: absolute;
+    top: 101px;
+    background-color: #fff;
+    padding: 0;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);
+    font-size: 0.875em;
+    max-width: 135px;
+`;
+
+/* Selector Elements Option */
+export const SortSelectorElementOption = styled.li<{ $active: boolean; }>`
+    border-collapse: collapse;
+    color:  ${props => props.$active ? "#3483fa" : "#666"};
+    box-sizing: border-box;
+    cursor: pointer;
+    align-items: center;
+    display: flex;
+    height: 41px;
+    border-bottom: 1px solid #d8d8d8;
+    padding: 1rem;
+    font-weight: ${props => props.$active ? "500" : "400"};
+    &:before {
+        background: ${props => props.$active ? "#3483fa" : ""};
+        content: "";
+        position: absolute;
+        width: 5px;
+        height: 41px;
+        left: 0;
+    }
+    &:hover {
+        &:after {
+            background: ${props => props.$active ? "#3483fa" : "#9cc4db"};
+            content: "";
+            left: 0;
+            position: absolute;
+            width: 5px;
+            height: 41px;
+        }
+        background-color: rgba(0,0,0,.04);
+        transition: background-color .1s ease-out;
+    }
+    &:first-child {
+        border-top-left-radius: .375em;
+        border-top-right-radius: .375em;
+        &:after {
+            border-top-left-radius: .375em;
+        }
+        &:before {
+            border-top-left-radius: .375em;
+        }
+    }
+    &:last-child {
+        border: 0;
+        &:after {
+            border-bottom-left-radius: .375em;
+        }
+        &:before {
+            border-bottom-left-radius: .375em;
+        }
+    }
 `;

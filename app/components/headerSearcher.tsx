@@ -14,13 +14,15 @@ import { setSearchDataResult } from "@/api";
 import { ApiContext } from "@/pages";
 
 const HeaderSearcher = () => {
-  /* search input value reference */
-  const searchInputRef = useRef<HTMLInputElement>(null);
   const contextValue = useContext(ApiContext);
   const {
     setSearchResultData,
     setLoadingState,
+    sortOption,
+    searchInputRef,
   } = contextValue;
+
+  const { value: sortDescription } = sortOption;
 
   const onSearchAction = async (event: MouseEvent<HTMLButtonElement>):Promise<void> => {
     event.preventDefault();
@@ -29,7 +31,7 @@ const HeaderSearcher = () => {
     if(inputValue) {
         /* activate loading state */
         setLoadingState(true)
-        const searchData = await setSearchDataResult(inputValue)
+        const searchData = await setSearchDataResult(inputValue, sortDescription)
         if (searchData) {
           setSearchResultData(searchData)
           /* deactivate loading state */

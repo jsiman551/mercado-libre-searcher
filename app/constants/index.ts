@@ -1,8 +1,29 @@
+import { contextObjectType } from "./types"
+
 /* API URL */
 export const ApiUrl: String = "https://api.mercadolibre.com/sites/MLA/search"
 
+/* Sort List Options */
+export const SortOptions: object[] = [
+    {
+        id: 1,
+        description: "Más relevantes",
+        value: "relevance",
+    },
+    {
+        id: 2,
+        description: "Menor precio",
+        value: "price_asc",
+    },
+    {
+        id: 3,
+        description: "Mayor precio",
+        value: "price_desc",
+    }
+]
+
 /* context mock data */
-export const contextMockData = {
+export const contextMockData: contextObjectType = {
     searchResultData: [
         {
             "id": "MLA1116628104",
@@ -617,6 +638,15 @@ export const contextMockData = {
         },
     ],
     loadingState: false,
+    sortOption: {
+        id: 1,
+        description: "Más relevantes",
+        value: "relevance",
+      },
+    searchInputRef: {
+        current: null
+    },
+    setSortOption: () => {}, 
     setSearchResultData: () => {},
     setLoadingState: () => {},
   }

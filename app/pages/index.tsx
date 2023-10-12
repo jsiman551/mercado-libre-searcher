@@ -1,4 +1,8 @@
-import { createContext, useState } from 'react';
+import {
+  createContext,
+  useRef,
+  useState,
+} from 'react';
 import Head from 'next/head'
 import { Roboto } from '@next/font/google'
 import HeaderSearcher from '@/components/headerSearcher'
@@ -6,10 +10,12 @@ import EmptyState from '@/components/emptyState';
 import {
   contextObjectType,
   productObjectType,
+  sortOptionsType,
 } from '@/constants/types';
 import { contextMockData } from '@/constants';
 import { ProductListContainer } from '@/constants/styles';
 import ProductElement from '@/components/productElement';
+import SortSelector from '@/components/sortSelector';
 
 const roboto = Roboto({ 
   weight: ['400', '500', '700'],
@@ -24,13 +30,24 @@ export default function Home() {
   const [ searchResultData, setSearchResultData ] = useState<object[] | null>(null)
   /* state to handle loading state */
   const [ loadingState, setLoadingState ] = useState<boolean>(false)
+  /* search input value reference */
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  /* state to handle sort option selection */
+  const [ sortOption, setSortOption ] = useState<sortOptionsType>({
+    id: 1,
+    description: "Más relevantes",
+    value: "relevance",
+  })
   const { Provider } = ApiContext
   
   const contextValues: contextObjectType = {
     searchResultData,
     loadingState,
+    sortOption,
+    searchInputRef,
     setSearchResultData,
     setLoadingState,
+    setSortOption,
   }
 
   return (
@@ -63,29 +80,32 @@ export default function Home() {
               : null
             }
             {searchResultData?.length && !loadingState
-              ? <ProductListContainer>
-                {searchResultData.map((product: productObjectType, index: number) => {
-                  const { 
-                    thumbnail,
-                    title,
-                    price,
-                    shipping,
-                    address,
-                    condition,
-                  } = product;
-                  return (
-                    <ProductElement 
-                      thumbnail={thumbnail || ""} 
-                      title={title || ""} 
-                      price={price || 0} 
-                      shipping={shipping || { free_shipping: false }} 
-                      address={address || { state_name: "", city_name: "" }}
-                      condition={condition || ""}
-                      key={index} 
-                    />
-                  )
-                })}
-                </ProductListContainer>
+              ? <>
+                  <SortSelector />
+                  <ProductListContainer>
+                    {searchResultData.map((product: productObjectType, index: number) => {
+                      const { 
+                        thumbnail,
+                        title,
+                        price,
+                        shipping,
+                        address,
+                        condition,
+                      } = product;
+                      return (
+                        <ProductElement 
+                          thumbnail={thumbnail || ""} 
+                          title={title || ""} 
+                          price={price || 0} 
+                          shipping={shipping || { free_shipping: false }} 
+                          address={address || { state_name: "", city_name: "" }}
+                          condition={condition || ""}
+                          key={index} 
+                        />
+                      )
+                    })}
+                  </ProductListContainer>
+                </>
               : null
             }
         </main>
