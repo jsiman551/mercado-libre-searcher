@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import {
-    SidebarCloseButton,
-    SidebarOverlay,
-} from '@/constants/styles';
-import PriceFilter from './priceFilter';
+import PriceFilter from '../price-filter';
 import { ApiContext } from '@/pages';
+import { 
+    SidebarOverlay, 
+    SidebarCloseButton 
+} from './styles';
 
 const MobileSidebar = () => {
     const {

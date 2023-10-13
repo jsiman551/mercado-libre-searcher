@@ -5,8 +5,8 @@ import {
 } from 'react';
 import Head from 'next/head'
 import { Roboto } from '@next/font/google'
-import HeaderSearcher from '@/components/headerSearcher'
-import EmptyState from '@/components/emptyState';
+import HeaderSearcher from '@/components/header-searcher'
+import EmptyState from '@/components/empty-state';
 import {
   contextObjectType,
   productObjectType,
@@ -16,11 +16,11 @@ import { contextMockData } from '@/constants';
 import {
   ContentContainer,
   OnlyLongResolutions,
-  ProductListContainer,
 } from '@/constants/styles';
-import ProductElement from '@/components/productElement';
-import SortSelector from '@/components/sortSelector';
-import PriceFilter from '@/components/priceFilter';
+import ProductElement from '@/components/product-element';
+import SortSelector from '@/components/sort-selector';
+import PriceFilter from '@/components/price-filter';
+import { ProductListContainer } from '@/components/product-element/styles';
 
 const roboto = Roboto({ 
   weight: ['400', '500', '700'],
@@ -98,9 +98,9 @@ export default function Home() {
             }
             {searchResultData?.length && !loadingState
               ? <ContentContainer>
-                <OnlyLongResolutions>
-                  <PriceFilter />
-                </OnlyLongResolutions>
+                  <OnlyLongResolutions>
+                    <PriceFilter />
+                  </OnlyLongResolutions>
                   <div>
                     <SortSelector />
                     <ProductListContainer>

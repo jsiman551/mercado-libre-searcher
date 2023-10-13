@@ -1,11 +1,11 @@
 import React from 'react';
 import { 
-    EmptyResultsContainer,
-    EmptyResultsText,
-} from '@/constants/styles';
+    EmptyResultsContainer, 
+    EmptyResultsText 
+} from './styles';
 
 interface Props {
-    message: String
+    message: string
 }
 
 const EmptyState = ({ message }: Props) => {

@@ -5,22 +5,22 @@ import React, {
     useRef,
 } from 'react';
 import Image from "next/image";
-import {
-    SidebarButton,
-    SortSelectorArrowIcon,
-    SortSelectorContainer,
-    SortSelectorElementContainer,
-    SortSelectorElementOption,
-    SortSelectorFlexBox,
-    SortSelectorLabel,
-    SortSelectorOptionText,
-} from '@/constants/styles';
 import { SortOptions } from '@/constants';
 import { sortOptionsType } from '@/constants/types';
 import { ApiContext } from '@/pages';
 import { setSearchDataResult } from '@/api';
 import useOutsideClick from '@/hooks/useOutsideClick';
-import MobileSidebar from './mobileSidebar';
+import MobileSidebar from '../mobile-sidebar';
+import { 
+    Container, 
+    SidebarButton, 
+    FlexBox, 
+    Label, 
+    OptionText, 
+    ArrowIcon, 
+    ElementContainer, 
+    ElementOption,
+} from './styles';
 
 const SortSelector = () => {
     const [ isSelectorShown, setIsSelectorShown ] = useState<boolean>(false);
@@ -59,42 +59,42 @@ const SortSelector = () => {
 
     return (
         <>
-            <SortSelectorContainer>
+            <Container>
                 <SidebarButton
                     onClick={() => setIsSidebarOpen(true)}
                 >
                     <Image
-                        src={'/burger-icon.svg'}
+                        src={'/icons/burger-icon.svg'}
                         alt='open sidebar'
                         width={20}
                         height={20}
                     />
                 </SidebarButton>
-                <SortSelectorFlexBox ref={optionsRef}>
-                    <SortSelectorLabel>
+                <FlexBox ref={optionsRef}>
+                    <Label>
                         <p>
                             Ordenar por
                         </p>
-                    </SortSelectorLabel>
-                    <SortSelectorOptionText 
+                    </Label>
+                    <OptionText 
                         onClick={() => setIsSelectorShown(!isSelectorShown)}
                     >
                         <p>
                             {description}
                         </p>
-                        <SortSelectorArrowIcon 
-                            src='/arrow-selector.svg'
+                        <ArrowIcon 
+                            src='/icons/arrow-selector-icon.svg'
                             alt='selector'
                             width={16}
                             height={16}
                             $active={isSelectorShown}
                         />
-                    </SortSelectorOptionText>
-                    {isSelectorShown ? <SortSelectorElementContainer>
+                    </OptionText>
+                    {isSelectorShown ? <ElementContainer>
                         {SortOptions.map((option: sortOptionsType, index: number) => {
                             const { id, description } = option;
                             return (
-                                <SortSelectorElementOption
+                                <ElementOption
                                     key={index}
                                     $active={sortOption?.id === id}
                                     onClick={() => {
@@ -103,12 +103,12 @@ const SortSelector = () => {
                                     }}
                                 >
                                     {description}
-                                </SortSelectorElementOption>
+                                </ElementOption>
                             )
                         })}
-                    </SortSelectorElementContainer> : null}
-                </SortSelectorFlexBox>
-            </SortSelectorContainer>
+                    </ElementContainer> : null}
+                </FlexBox>
+            </Container>
             {isSidebarOpen ? <MobileSidebar /> : null}
         </>
     )

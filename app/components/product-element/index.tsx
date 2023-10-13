@@ -1,19 +1,19 @@
 import React from "react";
 import Link from 'next/link'
-import {
-    DetailsContainer,
-    FreeShippingIconContainer,
-    ProductDuesText,
-    ProductElementContainer,
-    ProductImage,
-    ProductImageContainer,
-    ProductLocationText,
-    ProductPriceText,
-    ProductTitleText,
-    TextsDetailsContainer,
-} from "@/constants/styles";
 import { setPriceFormat } from "@/tools/formatPrice";
 import Image from "next/image";
+import { 
+    Container, 
+    DetailsContainer, 
+    ImageContainer, 
+    ProductImage, 
+    Details, 
+    PriceText, 
+    ShippingIconContainer, 
+    TitleText, 
+    DuesText, 
+    LocationText,
+} from "./styles";
 
 /* Se evidenciaron en la respuesta de la API, cambios que
 no son compatibles con el contrato "Product" como se plantea para el desafio,
@@ -58,9 +58,9 @@ const ProductElement = ({
 }: ProductProps) => {
     const { free_shipping } = shipping;
     return (
-        <ProductElementContainer>
+        <Container>
             <DetailsContainer>
-                <ProductImageContainer>
+                <ImageContainer>
                     <Link
                         href={permalink}
                         target="_blank"
@@ -72,34 +72,34 @@ const ProductElement = ({
                             height={160}
                         />
                     </Link>
-                </ProductImageContainer>
-                <TextsDetailsContainer>
-                    <ProductPriceText>
+                </ImageContainer>
+                <Details>
+                    <PriceText>
                         {`$ ${setPriceFormat(price)}`}
                         {free_shipping ? 
-                            <FreeShippingIconContainer>
+                            <ShippingIconContainer>
                                 <Image 
-                                    src="/truck-icon.svg" 
+                                    src="/icons/truck-icon.svg" 
                                     alt={"free shipping"} 
                                     width={12} 
                                     height={12}
                                 />
-                            </FreeShippingIconContainer> 
+                            </ShippingIconContainer> 
                         : null}
-                    </ProductPriceText>
-                    <ProductTitleText>
+                    </PriceText>
+                    <TitleText>
                         {`${title} (${condition})`}
-                    </ProductTitleText>
-                    <ProductDuesText>
+                    </TitleText>
+                    <DuesText>
                         {/* No parece que esta informacion venga en la API */}
                         En 3 cuotas de $15.333
-                    </ProductDuesText>
-                </TextsDetailsContainer>
+                    </DuesText>
+                </Details>
             </DetailsContainer>
-            <ProductLocationText>
+            <LocationText>
                 {`${address?.city_name}, ${address?.state_name}`}
-            </ProductLocationText>
-        </ProductElementContainer>
+            </LocationText>
+        </Container>
     )
 }
 

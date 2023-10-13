@@ -4,23 +4,23 @@ import React, {
     useState,
     useRef,
 } from 'react';
-import {
-    PriceFilterContainer,
-    PriceFilterInputContainer,
-    PriceFilterLabel,
-    PriceFilterListContainer,
-    PriceFilterRangeButton,
-    PriceFilterRangeElement,
-    PriceFilterRangeForm,
-    PriceFilterRangeInput,
-    PriceFilterRangeLink,
-    PriceFilterRangeLinkName,
-    PriceFilterRangeLinkQuantity,
-} from '@/constants/styles';
 import { ApiContext } from '@/pages';
 import { filterElementType } from '@/constants/types';
 import { setSearchDataResult } from '@/api';
 import Image from 'next/image';
+import {
+    Container,
+    Label,
+    ListContainer,
+    RangeElement,
+    RangeLink,
+    RangeLinkName,
+    RangeLinkQuantity,
+    RangeForm,
+    InputContainer,
+    RangeInput,
+    RangeButton,
+} from './styles';
 
 const PriceFilter = () => {
     const [ isActiveSubmit, setIsActiveSubmit ] = useState<boolean>(false)
@@ -72,16 +72,16 @@ const PriceFilter = () => {
     }
 
     return (
-        <PriceFilterContainer>
-            <PriceFilterLabel>
+        <Container>
+            <Label>
                 Precio
-            </PriceFilterLabel>
-            <PriceFilterListContainer>
+            </Label>
+            <ListContainer>
                 {priceFilters?.map((filterElement: filterElementType, index: number) => {
                     const { name, results, id } = filterElement;
                     return(
-                        <PriceFilterRangeElement key={index}>
-                            <PriceFilterRangeLink onClick={() => {
+                        <RangeElement key={index}>
+                            <RangeLink onClick={() => {
                                 /* lets clear inputs */
                                 formRef.current?.reset();
                                 setIsActiveSubmit(false);
@@ -92,36 +92,36 @@ const PriceFilter = () => {
                                 /* set new range */
                                 setPriceFilterRange(id || "");
                                 }}>
-                                <PriceFilterRangeLinkName>
+                                <RangeLinkName>
                                     {name}
-                                </PriceFilterRangeLinkName>
-                                <PriceFilterRangeLinkQuantity>
+                                </RangeLinkName>
+                                <RangeLinkQuantity>
                                     ({results})
-                                </PriceFilterRangeLinkQuantity>
-                            </PriceFilterRangeLink>
-                        </PriceFilterRangeElement>
+                                </RangeLinkQuantity>
+                            </RangeLink>
+                        </RangeElement>
                     )
                 })}
-                <PriceFilterRangeElement>
-                    <PriceFilterRangeForm ref={formRef}>
-                        <PriceFilterInputContainer>
-                            <PriceFilterRangeInput 
+                <RangeElement>
+                    <RangeForm ref={formRef}>
+                        <InputContainer>
+                            <RangeInput 
                                 ref={minimumInputRef} 
                                 placeholder='M&iacute;nimo' 
                                 onChange={onChangeSubmit}
                                 type='number'
                             />
-                        </PriceFilterInputContainer>
-                        <PriceFilterInputContainer>
-                            <PriceFilterRangeInput 
+                        </InputContainer>
+                        <InputContainer>
+                            <RangeInput 
                                 ref={maximumInputRef} 
                                 placeholder='M&aacute;ximo'
                                 onChange={onChangeSubmit}
                                 type='number'
                              />
-                        </PriceFilterInputContainer>
-                        <PriceFilterInputContainer>
-                            <PriceFilterRangeButton 
+                        </InputContainer>
+                        <InputContainer>
+                            <RangeButton 
                                 disabled={!isActiveSubmit} 
                                 $active={isActiveSubmit} 
                                 onClick={(e) => {
@@ -137,17 +137,17 @@ const PriceFilter = () => {
                                 }}
                             >
                                 <Image
-                                    src='/arrow-filter.svg'
+                                    src='/icons/arrow-filter-icon.svg'
                                     alt='submit price filter'
                                     width={20}
                                     height={20}
                                 />
-                            </PriceFilterRangeButton>
-                        </PriceFilterInputContainer>
-                    </PriceFilterRangeForm>
-                </PriceFilterRangeElement>
-            </PriceFilterListContainer>
-        </PriceFilterContainer>
+                            </RangeButton>
+                        </InputContainer>
+                    </RangeForm>
+                </RangeElement>
+            </ListContainer>
+        </Container>
     )
 }
 

@@ -3,14 +3,14 @@ import React, {
   useContext,
 } from "react";
 import Image from "next/image";
-import { 
-  Header, 
-  HeaderElementsContainer, 
-  SearchButton, 
-  SearchInput,
-} from "@/constants/styles";
 import { setSearchDataResult } from "@/api";
 import { ApiContext } from "@/pages";
+import { 
+  Header,
+  SearchInput, 
+  SearchButton,
+  ElementsContainer,
+} from "./styles";
 
 const HeaderSearcher = () => {
   const contextValue = useContext(ApiContext);
@@ -52,12 +52,12 @@ const HeaderSearcher = () => {
     return (
         <Header>
           <Image 
-            src="/logo_ml.png" 
+            src="/images/logo_ml.png" 
             alt={"logo"} 
             width={55} 
             height={40} 
           />
-          <HeaderElementsContainer>
+          <ElementsContainer>
             <SearchInput 
               ref={searchInputRef}
             />
@@ -66,13 +66,13 @@ const HeaderSearcher = () => {
               type="submit"
             >
               <Image 
-                src="/search-icon.svg" 
+                src="/icons/search-icon.svg" 
                 alt={"searcher"} 
                 width={20} 
                 height={25} 
               />
             </SearchButton>
-          </HeaderElementsContainer>
+          </ElementsContainer>
         </Header>
     )
 }
