@@ -2,6 +2,7 @@ import React, {
     useContext,
     useEffect,
     useState,
+    useRef,
 } from 'react';
 import {
     SortSelectorArrowIcon,
@@ -15,13 +16,17 @@ import { SortOptions } from '@/constants';
 import { sortOptionsType } from '@/constants/types';
 import { ApiContext } from '@/pages';
 import { setSearchDataResult } from '@/api';
+import useOutsideClick from '@/hooks/useOutsideClick';
 
 const SortSelector = () => {
     const [ isSelectorShown, setIsSelectorShown ] = useState<boolean>(false);
+    const optionsRef = useRef<HTMLDivElement>(null);
     const {
         sortOption,
         searchInputRef,
+        priceFilterRange,
         setSortOption,
+        setPriceFilters,
         setSearchResultData,
     } = useContext(ApiContext)
     const { description, value: sortDescription } = sortOption
@@ -30,16 +35,24 @@ const SortSelector = () => {
     /* set new results as soon as there is a new sort option */
     useEffect(() => {
         const setNewSearch = async () => {
-            const searchData = await setSearchDataResult(inputValue, sortDescription)
+            const searchData = await setSearchDataResult(inputValue, sortDescription, priceFilterRange)
             if (searchData) {
-                setSearchResultData(searchData)
+                setSearchResultData(searchData.responseData)
+                setPriceFilters(searchData.priceFiltersData)
             }
         }
         setNewSearch()
     }, [ sortOption ])
 
+    /* this hook will help on closing the "options container" when user clicks outside it */
+    useOutsideClick(optionsRef, () => {
+        if(isSelectorShown) {
+            setIsSelectorShown(false)
+        }
+    });
+
     return (
-        <SortSelectorContainer>
+        <SortSelectorContainer ref={optionsRef}>
             <SortSelectorLabel>
                 <p>
                     Ordenar por

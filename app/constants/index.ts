@@ -646,7 +646,11 @@ export const contextMockData: contextObjectType = {
     searchInputRef: {
         current: null
     },
+    priceFilters: null,
+    priceFilterRange: "",
     setSortOption: () => {}, 
     setSearchResultData: () => {},
     setLoadingState: () => {},
+    setPriceFilters: () => {},
+    setPriceFilterRange: () => {},
   }

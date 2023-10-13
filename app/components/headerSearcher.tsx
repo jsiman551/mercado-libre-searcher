@@ -1,7 +1,6 @@
 import React, {
   MouseEvent,
   useContext,
-  useRef,
 } from "react";
 import Image from "next/image";
 import { 
@@ -18,11 +17,11 @@ const HeaderSearcher = () => {
   const {
     setSearchResultData,
     setLoadingState,
-    sortOption,
+    setPriceFilters,
+    setSortOption,
+    setPriceFilterRange,
     searchInputRef,
   } = contextValue;
-
-  const { value: sortDescription } = sortOption;
 
   const onSearchAction = async (event: MouseEvent<HTMLButtonElement>):Promise<void> => {
     event.preventDefault();
@@ -31,9 +30,19 @@ const HeaderSearcher = () => {
     if(inputValue) {
         /* activate loading state */
         setLoadingState(true)
-        const searchData = await setSearchDataResult(inputValue, sortDescription)
+        /* Sort Selection back to it's default state */
+        setSortOption({
+          id: 1,
+          description: "Más relevantes",
+          value: "relevance",
+        })
+        /* price filter back to it's default state */
+        setPriceFilterRange("")
+        /* set data */
+        const searchData = await setSearchDataResult(inputValue)
         if (searchData) {
-          setSearchResultData(searchData)
+          setSearchResultData(searchData.responseData)
+          setPriceFilters(searchData.priceFiltersData)
           /* deactivate loading state */
           setLoadingState(false)
         }

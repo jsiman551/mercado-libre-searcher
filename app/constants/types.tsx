@@ -11,9 +11,13 @@ export type contextObjectType = {
     loadingState: boolean,
     sortOption: sortOptionsObjectType,
     searchInputRef: RefObject<HTMLInputElement>,
+    priceFilters: object[] | null,
+    priceFilterRange: string,
     setSearchResultData: (arg0: object[]) => void,
     setLoadingState: (arg0: boolean) => void,
     setSortOption: (arg0: object) => void,
+    setPriceFilters: (arg0: object[]) => void,
+    setPriceFilterRange: (arg0: string) => void,
   };
 
 export type productObjectType = {
@@ -28,10 +32,17 @@ export type productObjectType = {
       city_name: string
     },
     condition?: string,
+    permalink?: string;
   }
 
 export type sortOptionsType = {
   id?: number,
   description?: string,
   value?: string,
+}
+
+export type filterElementType = {
+  id?: string,
+  name?: string,
+  results?: number,
 }

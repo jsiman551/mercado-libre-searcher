@@ -13,9 +13,13 @@ import {
   sortOptionsType,
 } from '@/constants/types';
 import { contextMockData } from '@/constants';
-import { ProductListContainer } from '@/constants/styles';
+import {
+  ContentContainer,
+  ProductListContainer,
+} from '@/constants/styles';
 import ProductElement from '@/components/productElement';
 import SortSelector from '@/components/sortSelector';
+import PriceFilter from '@/components/priceFilter';
 
 const roboto = Roboto({ 
   weight: ['400', '500', '700'],
@@ -28,10 +32,14 @@ export const ApiContext = createContext<contextObjectType>(contextMockData);
 export default function Home() {
   /* state where result data will be set */
   const [ searchResultData, setSearchResultData ] = useState<object[] | null>(null)
+  /* state where price filters data will be set */
+  const [ priceFilters, setPriceFilters ] = useState<object[] | null>(null)
   /* state to handle loading state */
   const [ loadingState, setLoadingState ] = useState<boolean>(false)
   /* search input value reference */
   const searchInputRef = useRef<HTMLInputElement>(null);
+  /* state to handle price filter range */
+  const [ priceFilterRange, setPriceFilterRange ] = useState<string>("")
   /* state to handle sort option selection */
   const [ sortOption, setSortOption ] = useState<sortOptionsType>({
     id: 1,
@@ -45,9 +53,13 @@ export default function Home() {
     loadingState,
     sortOption,
     searchInputRef,
+    priceFilters,
+    priceFilterRange,
     setSearchResultData,
     setLoadingState,
     setSortOption,
+    setPriceFilters,
+    setPriceFilterRange,
   }
 
   return (
@@ -69,7 +81,7 @@ export default function Home() {
             }
             {searchResultData?.length === 0 && !loadingState
               ? <EmptyState 
-                  message="No hay resultados para tu b&uacute;squeda mas reciente." 
+                  message="No hay resultados para tu b&uacute;squeda." 
                 />
               : null
             }
@@ -80,32 +92,37 @@ export default function Home() {
               : null
             }
             {searchResultData?.length && !loadingState
-              ? <>
-                  <SortSelector />
-                  <ProductListContainer>
-                    {searchResultData.map((product: productObjectType, index: number) => {
-                      const { 
-                        thumbnail,
-                        title,
-                        price,
-                        shipping,
-                        address,
-                        condition,
-                      } = product;
-                      return (
-                        <ProductElement 
-                          thumbnail={thumbnail || ""} 
-                          title={title || ""} 
-                          price={price || 0} 
-                          shipping={shipping || { free_shipping: false }} 
-                          address={address || { state_name: "", city_name: "" }}
-                          condition={condition || ""}
-                          key={index} 
-                        />
-                      )
-                    })}
-                  </ProductListContainer>
-                </>
+              ? <ContentContainer>
+                  <PriceFilter />
+                  <div>
+                    <SortSelector />
+                    <ProductListContainer>
+                      {searchResultData.map((product: productObjectType, index: number) => {
+                        const { 
+                          thumbnail,
+                          title,
+                          price,
+                          shipping,
+                          address,
+                          condition,
+                          permalink,
+                        } = product;
+                        return (
+                          <ProductElement 
+                            thumbnail={thumbnail || ""} 
+                            title={title || ""} 
+                            price={price || 0} 
+                            shipping={shipping || { free_shipping: false }} 
+                            address={address || { state_name: "", city_name: "" }}
+                            condition={condition || ""}
+                            permalink={permalink || ""}
+                            key={index} 
+                          />
+                        )
+                      })}
+                    </ProductListContainer>
+                  </div>
+                </ContentContainer>
               : null
             }
         </main>
