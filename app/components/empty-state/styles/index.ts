@@ -3,17 +3,17 @@ import { tablet } from "@/constants/styles";
 
 /* container for empty results */
 export const EmptyResultsContainer = styled.div`
-    padding: 2rem;
-    background: white;
-    border-radius: 4px;
-    margin: 3rem 1rem 0 1rem;
-    @media ${tablet} {
-        margin: 3rem auto 0 auto;
-        max-width: 600px;
-    }
+  padding: 2rem;
+  background: white;
+  border-radius: 4px;
+  margin: 3rem 1rem 0 1rem;
+  @media ${tablet} {
+    margin: 3rem auto 0 auto;
+    max-width: 600px;
+  }
 `;
 
 /* message for empty results */
 export const EmptyResultsText = styled.p`
-    text-align: center;
+  text-align: center;
 `;

@@ -1,10 +1,10 @@
 import { RefObject, useEffect } from "react";
 
 const useOutsideClick = (
-    ref: RefObject<HTMLDivElement>,
-    callback: () => void
+  ref: RefObject<HTMLDivElement>,
+  callback: () => void,
 ) => {
-  const handleClick = (e: { target: Node | null; }) => {
+  const handleClick = (e: { target: Node | null }) => {
     if (ref.current && !ref.current.contains(e?.target)) {
       callback();
     }
@@ -12,13 +12,13 @@ const useOutsideClick = (
 
   useEffect(() => {
     document.addEventListener("click", (e: MouseEvent) => {
-        handleClick({ target: e.target as Node | null });
+      handleClick({ target: e.target as Node | null });
     });
 
     return () => {
       document.removeEventListener("click", (e: MouseEvent) => {
         handleClick({ target: e.target as Node | null });
-    });
+      });
     };
   });
 };

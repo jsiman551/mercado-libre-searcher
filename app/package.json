@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest --config jest.config.mjs",
-    "test:watch": "jest --config jest.config.mjs --watch"
+    "test:watch": "jest --config jest.config.mjs --watch",
+    "format": "prettier --check --ignore-path .gitignore .",
+    "format:fix": "prettier --write --ignore-path .gitignore ."
   },
   "dependencies": {
     "@next/font": "13.1.6",
@@ -20,6 +22,7 @@
     "eslint": "8.33.0",
     "eslint-config-next": "13.1.6",
     "next": "13.1.6",
+    "prettier": "^3.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "styled-components": "^6.0.8",
