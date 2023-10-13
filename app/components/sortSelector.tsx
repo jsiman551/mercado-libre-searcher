@@ -4,11 +4,14 @@ import React, {
     useState,
     useRef,
 } from 'react';
+import Image from "next/image";
 import {
+    SidebarButton,
     SortSelectorArrowIcon,
     SortSelectorContainer,
     SortSelectorElementContainer,
     SortSelectorElementOption,
+    SortSelectorFlexBox,
     SortSelectorLabel,
     SortSelectorOptionText,
 } from '@/constants/styles';
@@ -17,6 +20,7 @@ import { sortOptionsType } from '@/constants/types';
 import { ApiContext } from '@/pages';
 import { setSearchDataResult } from '@/api';
 import useOutsideClick from '@/hooks/useOutsideClick';
+import MobileSidebar from './mobileSidebar';
 
 const SortSelector = () => {
     const [ isSelectorShown, setIsSelectorShown ] = useState<boolean>(false);
@@ -25,9 +29,11 @@ const SortSelector = () => {
         sortOption,
         searchInputRef,
         priceFilterRange,
+        isSidebarOpen,
         setSortOption,
         setPriceFilters,
         setSearchResultData,
+        setIsSidebarOpen,
     } = useContext(ApiContext)
     const { description, value: sortDescription } = sortOption
     const inputValue = searchInputRef.current?.value || ""
@@ -52,44 +58,59 @@ const SortSelector = () => {
     });
 
     return (
-        <SortSelectorContainer ref={optionsRef}>
-            <SortSelectorLabel>
-                <p>
-                    Ordenar por
-                </p>
-            </SortSelectorLabel>
-            <SortSelectorOptionText 
-                onClick={() => setIsSelectorShown(!isSelectorShown)}
-            >
-                <p>
-                    {description}
-                </p>
-                <SortSelectorArrowIcon 
-                    src='/arrow-selector.svg'
-                    alt='selector'
-                    width={16}
-                    height={16}
-                    $active={isSelectorShown}
-                />
-            </SortSelectorOptionText>
-            {isSelectorShown ? <SortSelectorElementContainer>
-                {SortOptions.map((option: sortOptionsType, index: number) => {
-                    const { id, description } = option;
-                    return (
-                        <SortSelectorElementOption
-                            key={index}
-                            $active={sortOption?.id === id}
-                            onClick={() => {
-                                setSortOption(option)
-                                setIsSelectorShown(false)
-                            }}
-                        >
+        <>
+            <SortSelectorContainer>
+                <SidebarButton
+                    onClick={() => setIsSidebarOpen(true)}
+                >
+                    <Image
+                        src={'/burger-icon.svg'}
+                        alt='open sidebar'
+                        width={20}
+                        height={20}
+                    />
+                </SidebarButton>
+                <SortSelectorFlexBox ref={optionsRef}>
+                    <SortSelectorLabel>
+                        <p>
+                            Ordenar por
+                        </p>
+                    </SortSelectorLabel>
+                    <SortSelectorOptionText 
+                        onClick={() => setIsSelectorShown(!isSelectorShown)}
+                    >
+                        <p>
                             {description}
-                        </SortSelectorElementOption>
-                    )
-                })}
-            </SortSelectorElementContainer> : null}
-        </SortSelectorContainer>
+                        </p>
+                        <SortSelectorArrowIcon 
+                            src='/arrow-selector.svg'
+                            alt='selector'
+                            width={16}
+                            height={16}
+                            $active={isSelectorShown}
+                        />
+                    </SortSelectorOptionText>
+                    {isSelectorShown ? <SortSelectorElementContainer>
+                        {SortOptions.map((option: sortOptionsType, index: number) => {
+                            const { id, description } = option;
+                            return (
+                                <SortSelectorElementOption
+                                    key={index}
+                                    $active={sortOption?.id === id}
+                                    onClick={() => {
+                                        setSortOption(option)
+                                        setIsSelectorShown(false)
+                                    }}
+                                >
+                                    {description}
+                                </SortSelectorElementOption>
+                            )
+                        })}
+                    </SortSelectorElementContainer> : null}
+                </SortSelectorFlexBox>
+            </SortSelectorContainer>
+            {isSidebarOpen ? <MobileSidebar /> : null}
+        </>
     )
 }
 

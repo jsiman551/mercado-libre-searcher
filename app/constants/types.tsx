@@ -13,11 +13,13 @@ export type contextObjectType = {
     searchInputRef: RefObject<HTMLInputElement>,
     priceFilters: object[] | null,
     priceFilterRange: string,
+    isSidebarOpen: boolean,
     setSearchResultData: (arg0: object[]) => void,
     setLoadingState: (arg0: boolean) => void,
     setSortOption: (arg0: object) => void,
     setPriceFilters: (arg0: object[]) => void,
     setPriceFilterRange: (arg0: string) => void,
+    setIsSidebarOpen: (arg0: boolean) => void,
   };
 
 export type productObjectType = {

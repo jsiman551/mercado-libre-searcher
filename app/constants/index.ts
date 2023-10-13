@@ -648,9 +648,11 @@ export const contextMockData: contextObjectType = {
     },
     priceFilters: null,
     priceFilterRange: "",
+    isSidebarOpen: false,
     setSortOption: () => {}, 
     setSearchResultData: () => {},
     setLoadingState: () => {},
     setPriceFilters: () => {},
     setPriceFilterRange: () => {},
+    setIsSidebarOpen: () => {},
   }

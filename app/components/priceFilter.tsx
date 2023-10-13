@@ -33,6 +33,8 @@ const PriceFilter = () => {
       searchInputRef,
       sortOption,
       priceFilterRange,
+      isSidebarOpen,
+      setIsSidebarOpen,
       setSearchResultData,
       setPriceFilters,
       setPriceFilterRange,
@@ -83,6 +85,10 @@ const PriceFilter = () => {
                                 /* lets clear inputs */
                                 formRef.current?.reset();
                                 setIsActiveSubmit(false);
+                                /* if sidebar is opened */
+                                if(isSidebarOpen) {
+                                    setIsSidebarOpen(false)
+                                }
                                 /* set new range */
                                 setPriceFilterRange(id || "");
                                 }}>
@@ -123,6 +129,10 @@ const PriceFilter = () => {
                                     const minimum = minimumInputRef.current?.value;
                                     const maximum = maximumInputRef.current?.value;
                                     const priceRange = `${minimum || '*'}-${maximum || '*'}`;
+                                    /* if sidebar is opened */
+                                    if(isSidebarOpen) {
+                                        setIsSidebarOpen(false)
+                                    }
                                     setPriceFilterRange(priceRange);
                                 }}
                             >

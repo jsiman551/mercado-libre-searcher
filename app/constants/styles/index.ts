@@ -16,6 +16,14 @@ const deviceResolution = {
 
 const { mobile, tablet, desktop } = deviceResolution;
 
+/* only appear on long resolutions */
+export const OnlyLongResolutions = styled.div`
+    display: none;
+    @media ${tablet} {
+        display: contents;
+    }
+`;
+
 /* Content Container */
 export const ContentContainer = styled.div`
     display: flex;
@@ -224,8 +232,16 @@ export const SortSelectorContainer = styled.div`
     display: flex;
     margin-left: auto;
     margin-right: auto;
-    justify-content: end;
+    justify-content: space-between;
     align-items: center;
+    @media ${tablet} {
+        justify-content: end;
+    }
+`;
+
+export const SortSelectorFlexBox = styled.div`
+    display: flex;
+    justify-content: end;
 `;
 
 /* Selector Label */
@@ -256,8 +272,6 @@ export const SortSelectorArrowIcon = styled.img<{ $active: boolean; }>`
 
 /* Selector Elements Container */
 export const SortSelectorElementContainer = styled.ul`
-    border-collapse: collapse;
-    box-sizing: border-box;
     border-radius: .375em;
     position: absolute;
     top: 101px;
@@ -265,7 +279,10 @@ export const SortSelectorElementContainer = styled.ul`
     padding: 0;
     box-shadow: 0 1px 2px 0 rgba(0,0,0,.12);
     font-size: .875em;
-    max-width: 135px;
+    width: 134px;
+    @media ${desktop} {
+        padding-right: 1rem;
+    }
 `;
 
 /* Selector Elements Option */
@@ -324,21 +341,21 @@ export const SortSelectorElementOption = styled.li<{ $active: boolean; }>`
 /****************Price Filter Styles*********************/
 /* Price Filter Container */
 export const PriceFilterContainer = styled.div`
-    border-collapse: collapse;
     font-size: 1em;
     box-sizing: border-box;
-    padding-top: 3rem;
-    display: none;
     padding-right: .5rem;
-    width: 45%;
+    border-bottom: 1px solid rgba(0,0,0,.25);
+    width: 80%;
+    margin: 2rem 0 0 1rem;
     @media ${tablet} {
-        display: block;
+        border: 0;
+        margin-left: 0;
+        width: 45%;
+        padding-top: 3rem;
     }
     @media ${desktop} {
-        padding-right: 1rem;
         width: 30%;
     }
-
 `;
 
 /* Price Label */
@@ -458,4 +475,40 @@ export const PriceFilterRangeButton = styled.button<{ $active: boolean; }>`
     margin-left: 8px;
     width: 24px;
     background-color: ${props => props.$active ? "#3483fa" : "#e0e0e0"};;
+`;
+
+/****Sidebar For Filters in Mobile Resolution*****/
+export const SidebarButton = styled.button`
+    display: flex;
+    background-color: white;
+    border-radius: 4px;
+    borde: 1px solid;
+    @media ${tablet} {
+        display: none;
+    }
+`;
+
+/* overlay element */
+export const SidebarOverlay = styled.div`
+    position: fixed;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: white;
+    z-index: 10;
+    box-shadow: 2px 0px 2px rgba(0,0,0,.25);
+    @media ${tablet} {
+        display: none;
+    }
+}
+`;
+
+/* overlay element */
+export const SidebarCloseButton = styled.button`
+    float: right;
+    background: transparent;
+    border: 1px solid rgba(0,0,0,.25);
+    border-radius: 4px;
+    font-size: .875em;
+    margin: 0.4rem 0.4rem 0 0
 `;

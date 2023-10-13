@@ -15,6 +15,7 @@ import {
 import { contextMockData } from '@/constants';
 import {
   ContentContainer,
+  OnlyLongResolutions,
   ProductListContainer,
 } from '@/constants/styles';
 import ProductElement from '@/components/productElement';
@@ -46,6 +47,8 @@ export default function Home() {
     description: "Más relevantes",
     value: "relevance",
   })
+  /* it helps to open/close mobile sidebar */
+  const [ isSidebarOpen, setIsSidebarOpen ] = useState<boolean>(false);
   const { Provider } = ApiContext
   
   const contextValues: contextObjectType = {
@@ -55,11 +58,13 @@ export default function Home() {
     searchInputRef,
     priceFilters,
     priceFilterRange,
+    isSidebarOpen,
     setSearchResultData,
     setLoadingState,
     setSortOption,
     setPriceFilters,
     setPriceFilterRange,
+    setIsSidebarOpen,
   }
 
   return (
@@ -93,7 +98,9 @@ export default function Home() {
             }
             {searchResultData?.length && !loadingState
               ? <ContentContainer>
+                <OnlyLongResolutions>
                   <PriceFilter />
+                </OnlyLongResolutions>
                   <div>
                     <SortSelector />
                     <ProductListContainer>
