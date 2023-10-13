@@ -118,7 +118,8 @@ export const SidebarButton = styled.button`
     display: flex;
     background-color: white;
     border-radius: 4px;
-    borde: 1px solid;
+    border: 1px solid;
+    cursor: pointer;
     @media ${tablet} {
         display: none;
     }

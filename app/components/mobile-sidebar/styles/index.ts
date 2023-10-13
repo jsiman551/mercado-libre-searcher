@@ -3,7 +3,7 @@ import { tablet } from "@/constants/styles";
 
 /****Sidebar For Filters in Mobile Resolution*****/
 /* overlay element */
-export const SidebarOverlay = styled.div`
+export const SidebarOverlay = styled.div<{ $isOpen: boolean; }>`
     position: fixed;
     height: 100%;
     left: 0;
@@ -11,6 +11,8 @@ export const SidebarOverlay = styled.div`
     background: white;
     z-index: 10;
     box-shadow: 2px 0px 2px rgba(0,0,0,.25);
+    transition: transform .5s;
+    transform: ${props => props.$isOpen ? "translate(0)" : "translate(-246px)"};
     @media ${tablet} {
         display: none;
     }

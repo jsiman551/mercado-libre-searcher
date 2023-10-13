@@ -8,11 +8,12 @@ import {
 
 const MobileSidebar = () => {
     const {
+        isSidebarOpen,
         setIsSidebarOpen,
     } = useContext(ApiContext)
 
     return (
-        <SidebarOverlay>
+        <SidebarOverlay $isOpen={isSidebarOpen}>
             <SidebarCloseButton 
                 onClick={() => setIsSidebarOpen(false)}
             >

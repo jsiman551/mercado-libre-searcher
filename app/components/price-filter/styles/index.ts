@@ -6,7 +6,7 @@ import { desktop, tablet } from "@/constants/styles";
 export const Container = styled.div`
     font-size: 1em;
     box-sizing: border-box;
-    padding-right: .5rem;
+    padding-right: 1rem;
     border-bottom: 1px solid rgba(0,0,0,.25);
     width: 80%;
     margin: 2rem 0 0 1rem;
@@ -122,7 +122,7 @@ export const RangeInput = styled.input`
     box-shadow: 0 0 0 1px rgba(0,0,0,.25);
     &:focus {
         outline: 0;
-        box-shadow: 0 0 0 2px #fff, 0 0 0 3px #2968C8;
+        box-shadow: inset 0 0 0 2px #fff, 0 0 0 2px #2968C8;
     }
 `;
 
@@ -137,5 +137,5 @@ export const RangeButton = styled.button<{ $active: boolean; }>`
     height: 24px;
     margin-left: 8px;
     width: 24px;
-    background-color: ${props => props.$active ? "#3483fa" : "#e0e0e0"};;
+    background-color: ${props => props.$active ? "#3483fa" : "#e0e0e0"};
 `;

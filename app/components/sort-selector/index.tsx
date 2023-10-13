@@ -109,7 +109,7 @@ const SortSelector = () => {
                     </ElementContainer> : null}
                 </FlexBox>
             </Container>
-            {isSidebarOpen ? <MobileSidebar /> : null}
+            <MobileSidebar />
         </>
     )
 }
