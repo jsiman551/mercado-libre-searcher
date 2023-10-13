@@ -105,15 +105,3 @@ export const LocationText = styled.p`
     width: 20%;
   }
 `;
-
-/*****Free Shipping Icon Styles******/
-export const ShippingIconContainer = styled.span`
-  background: #2ec866;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 20px;
-  height: 20px;
-  margin-left: 8px;
-`;

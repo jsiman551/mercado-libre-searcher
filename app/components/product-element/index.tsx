@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import { setPriceFormat } from "@/tools/formatPrice";
-import Image from "next/image";
 import {
   Container,
   DetailsContainer,
@@ -9,11 +8,11 @@ import {
   ProductImage,
   Details,
   PriceText,
-  ShippingIconContainer,
   TitleText,
   DuesText,
   LocationText,
 } from "./styles";
+import TagIcon from "../tag-icon";
 
 /* Se evidenciaron en la respuesta de la API, cambios que
 no son compatibles con el contrato "Product" como se plantea para el desafio,
@@ -74,14 +73,11 @@ const ProductElement = ({
           <PriceText>
             {`$ ${setPriceFormat(price)}`}
             {free_shipping ? (
-              <ShippingIconContainer>
-                <Image
-                  src="/icons/truck-icon.svg"
-                  alt={"free shipping"}
-                  width={12}
-                  height={12}
-                />
-              </ShippingIconContainer>
+              <TagIcon
+                bgColor="#2ec866"
+                imgUrl="/icons/truck-icon.svg"
+                altDescription="free shipping"
+              />
             ) : null}
           </PriceText>
           <TitleText>{`${title} (${condition})`}</TitleText>
