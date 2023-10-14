@@ -1,5 +1,4 @@
 import React from "react";
-import { ContentContainer, OnlyLongResolutions } from "@/constants/styles";
 import { productObjectType } from "@/constants/types";
 import EmptyState from "../empty-state";
 import HeaderSearcher from "../header-searcher";
@@ -9,6 +8,7 @@ import { ProductListContainer } from "../product-element/styles";
 import SortSelector from "../sort-selector";
 import { useAppSelector } from "@/hooks/useAppSelector";
 import { RootState } from "@/redux/store";
+import { ContentContainer, OnlyLongResolutions } from "./styles";
 
 const Content = () => {
   const resultData = useAppSelector(
