@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
-import { ApiContext } from "@/pages";
 import { filterElementType } from "@/constants/types";
 import { setSearchDataResult } from "@/api";
 import Image from "next/image";
@@ -16,26 +15,39 @@ import {
   RangeInput,
   RangeButton,
 } from "./styles";
+import { useAppSelector } from "@/hooks/useAppSelector";
+import { RootState } from "@/redux/store";
+import {
+  GET_PRICE_FILTERS_SUCCESS,
+  GET_RESULT_SUCCESS,
+} from "@/redux/slices/search-data-slice/types";
+import { getStarted } from "@/redux/slices/search-data-slice";
+import { useAppDispatch } from "@/hooks/useAppDispatch";
+import { GET_FLAG } from "@/redux/slices/sidebar-flag-slice/types";
+import { GET_PRICE_RANGE_VALUE } from "@/redux/slices/price-range-slice/types";
 
 const PriceFilter = () => {
+  const dispatch = useAppDispatch();
+  const inputValue = useAppSelector(
+    (state: RootState) => state.searchInput.value,
+  );
+  const priceFilters = useAppSelector(
+    (state: RootState) => state.searchData.priceFilters,
+  );
+  const isSidebarOpen = useAppSelector(
+    (state: RootState) => state.mobileSidebarFlag.flag,
+  );
+  const priceFilterRange = useAppSelector(
+    (state: RootState) => state.priceRange.value,
+  );
+  const sortOption = useAppSelector(
+    (state: RootState) => state.sortOption.option,
+  );
   const [isActiveSubmit, setIsActiveSubmit] = useState<boolean>(false);
   const minimumInputRef = useRef<HTMLInputElement>(null);
   const maximumInputRef = useRef<HTMLInputElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
-  const contextValue = useContext(ApiContext);
-  const {
-    priceFilters,
-    searchInputRef,
-    sortOption,
-    priceFilterRange,
-    isSidebarOpen,
-    setIsSidebarOpen,
-    setSearchResultData,
-    setPriceFilters,
-    setPriceFilterRange,
-  } = contextValue;
   const { value: sortDescription } = sortOption;
-  const inputValue = searchInputRef.current?.value || "";
 
   /* set price filter */
   useEffect(() => {
@@ -47,8 +59,18 @@ const PriceFilter = () => {
           priceFilterRange,
         );
         if (searchData) {
-          setSearchResultData(searchData.responseData);
-          setPriceFilters(searchData.priceFiltersData);
+          /* get loading flag */
+          dispatch(getStarted());
+          /* get result data */
+          dispatch({
+            type: GET_RESULT_SUCCESS,
+            payload: searchData.responseData,
+          });
+          /* get price filters data */
+          dispatch({
+            type: GET_PRICE_FILTERS_SUCCESS,
+            payload: searchData.priceFiltersData,
+          });
         }
       }
     };
@@ -82,10 +104,17 @@ const PriceFilter = () => {
                     setIsActiveSubmit(false);
                     /* if sidebar is opened */
                     if (isSidebarOpen) {
-                      setIsSidebarOpen(false);
+                      /* set sidebar flag to store */
+                      dispatch({
+                        type: GET_FLAG,
+                        payload: false,
+                      });
                     }
-                    /* set new range */
-                    setPriceFilterRange(id || "");
+                    /* price filter range back to it's default state */
+                    dispatch({
+                      type: GET_PRICE_RANGE_VALUE,
+                      payload: id || "",
+                    });
                   }}
                 >
                   <RangeLinkName>{name}</RangeLinkName>
@@ -124,9 +153,17 @@ const PriceFilter = () => {
                   const priceRange = `${minimum || "*"}-${maximum || "*"}`;
                   /* if sidebar is opened */
                   if (isSidebarOpen) {
-                    setIsSidebarOpen(false);
+                    /* set sidebar flag to store */
+                    dispatch({
+                      type: GET_FLAG,
+                      payload: false,
+                    });
                   }
-                  setPriceFilterRange(priceRange);
+                  /* price filter range back to it's default state */
+                  dispatch({
+                    type: GET_PRICE_RANGE_VALUE,
+                    payload: priceRange,
+                  });
                 }}
               >
                 <Image

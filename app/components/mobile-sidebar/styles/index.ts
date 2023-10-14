@@ -13,7 +13,7 @@ export const SidebarOverlay = styled.div<{ $isOpen: boolean }>`
   box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.25);
   transition: transform 0.5s;
   transform: ${(props) =>
-    props.$isOpen ? "translate(0)" : "translate(-246px)"};
+    props.$isOpen ? "translate(0)" : "translate(-252px)"};
   @media ${tablet} {
     display: none;
   }

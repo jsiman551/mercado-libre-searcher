@@ -1,8 +1,7 @@
-import React, { useContext, useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import { SortOptions } from "@/constants";
 import { sortOptionsType } from "@/constants/types";
-import { ApiContext } from "@/pages";
 import { setSearchDataResult } from "@/api";
 import useOutsideClick from "@/hooks/useOutsideClick";
 import MobileSidebar from "../mobile-sidebar";
@@ -16,21 +15,31 @@ import {
   ElementContainer,
   ElementOption,
 } from "./styles";
+import { useAppDispatch } from "@/hooks/useAppDispatch";
+import { getStarted } from "@/redux/slices/search-data-slice";
+import {
+  GET_RESULT_SUCCESS,
+  GET_PRICE_FILTERS_SUCCESS,
+} from "@/redux/slices/search-data-slice/types";
+import { useAppSelector } from "@/hooks/useAppSelector";
+import { RootState } from "@/redux/store";
+import { GET_SORT_OPTION } from "@/redux/slices/sort-option-slice/types";
+import { GET_FLAG } from "@/redux/slices/sidebar-flag-slice/types";
 
 const SortSelector = () => {
+  const dispatch = useAppDispatch();
+  const inputValue = useAppSelector(
+    (state: RootState) => state.searchInput.value,
+  );
+  const priceFilterRange = useAppSelector(
+    (state: RootState) => state.priceRange.value,
+  );
+  const sortOption = useAppSelector(
+    (state: RootState) => state.sortOption.option,
+  );
   const [isSelectorShown, setIsSelectorShown] = useState<boolean>(false);
   const optionsRef = useRef<HTMLDivElement>(null);
-  const {
-    sortOption,
-    searchInputRef,
-    priceFilterRange,
-    setSortOption,
-    setPriceFilters,
-    setSearchResultData,
-    setIsSidebarOpen,
-  } = useContext(ApiContext);
   const { description, value: sortDescription } = sortOption;
-  const inputValue = searchInputRef.current?.value || "";
 
   /* set new results as soon as there is a new sort option */
   useEffect(() => {
@@ -41,8 +50,18 @@ const SortSelector = () => {
         priceFilterRange,
       );
       if (searchData) {
-        setSearchResultData(searchData.responseData);
-        setPriceFilters(searchData.priceFiltersData);
+        /* get loading flag */
+        dispatch(getStarted());
+        /* get result data */
+        dispatch({
+          type: GET_RESULT_SUCCESS,
+          payload: searchData.responseData,
+        });
+        /* get price filters data */
+        dispatch({
+          type: GET_PRICE_FILTERS_SUCCESS,
+          payload: searchData.priceFiltersData,
+        });
       }
     };
     setNewSearch();
@@ -58,7 +77,15 @@ const SortSelector = () => {
   return (
     <>
       <Container>
-        <SidebarButton onClick={() => setIsSidebarOpen(true)}>
+        <SidebarButton
+          onClick={() => {
+            /* set sidebar flag to store */
+            dispatch({
+              type: GET_FLAG,
+              payload: true,
+            });
+          }}
+        >
           <Image
             src={"/icons/burger-icon.svg"}
             alt="open sidebar"
@@ -89,7 +116,11 @@ const SortSelector = () => {
                     key={index}
                     $active={sortOption?.id === id}
                     onClick={() => {
-                      setSortOption(option);
+                      /* set new sort option */
+                      dispatch({
+                        type: GET_SORT_OPTION,
+                        payload: option,
+                      });
                       setIsSelectorShown(false);
                     }}
                   >
