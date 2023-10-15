@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import { SortOptions } from "@/constants";
 import { sortOptionsType } from "@/constants/types";
-import { setSearchDataResult } from "@/api";
 import useOutsideClick from "@/hooks/useOutsideClick";
 import MobileSidebar from "../mobile-sidebar";
 import {
@@ -16,15 +15,11 @@ import {
   ElementOption,
 } from "./styles";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
-import { getStarted } from "@/redux/slices/search-data-slice";
-import {
-  GET_RESULT_SUCCESS,
-  GET_PRICE_FILTERS_SUCCESS,
-} from "@/redux/slices/search-data-slice/types";
 import { useAppSelector } from "@/hooks/useAppSelector";
 import { RootState } from "@/redux/store";
 import { GET_SORT_OPTION } from "@/redux/slices/sort-option-slice/types";
 import { GET_FLAG } from "@/redux/slices/sidebar-flag-slice/types";
+import { fetchDataThunk } from "@/redux/slices/search-data-slice/api";
 
 const SortSelector = () => {
   const dispatch = useAppDispatch();
@@ -44,25 +39,12 @@ const SortSelector = () => {
   /* set new results as soon as there is a new sort option */
   useEffect(() => {
     const setNewSearch = async () => {
-      const searchData = await setSearchDataResult(
-        inputValue,
-        sortDescription,
-        priceFilterRange,
-      );
-      if (searchData) {
-        /* get loading flag */
-        dispatch(getStarted());
-        /* get result data */
-        dispatch({
-          type: GET_RESULT_SUCCESS,
-          payload: searchData.responseData,
-        });
-        /* get price filters data */
-        dispatch({
-          type: GET_PRICE_FILTERS_SUCCESS,
-          payload: searchData.priceFiltersData,
-        });
-      }
+      /* fetch Search Data */
+      dispatch(fetchDataThunk({
+        question: inputValue,
+        sort: sortDescription,
+        priceRange: priceFilterRange,
+      }));
     };
     setNewSearch();
   }, [sortOption]);

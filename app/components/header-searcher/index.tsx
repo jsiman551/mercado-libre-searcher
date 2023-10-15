@@ -1,16 +1,11 @@
 import React, { MouseEvent, useRef } from "react";
 import Image from "next/image";
-import { setSearchDataResult } from "@/api";
 import { Header, SearchInput, SearchButton, ElementsContainer } from "./styles";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
-import {
-  GET_PRICE_FILTERS_SUCCESS,
-  GET_RESULT_SUCCESS,
-} from "@/redux/slices/search-data-slice/types";
-import { getStarted } from "@/redux/slices/search-data-slice";
 import { GET_SEARCH_INPUT_VALUE } from "@/redux/slices/search-input-slice/types";
 import { GET_SORT_OPTION } from "@/redux/slices/sort-option-slice/types";
 import { GET_PRICE_RANGE_VALUE } from "@/redux/slices/price-range-slice/types";
+import { fetchDataThunk } from "@/redux/slices/search-data-slice/api";
 
 const HeaderSearcher = () => {
   /* search input value reference */
@@ -34,26 +29,15 @@ const HeaderSearcher = () => {
         type: GET_PRICE_RANGE_VALUE,
         payload: "",
       });
-      const searchData = await setSearchDataResult(inputValue);
-      if (searchData) {
-        /* get loading flag */
-        dispatch(getStarted());
-        /* get result data */
-        dispatch({
-          type: GET_RESULT_SUCCESS,
-          payload: searchData.responseData,
-        });
-        /* get price filters data */
-        dispatch({
-          type: GET_PRICE_FILTERS_SUCCESS,
-          payload: searchData.priceFiltersData,
-        });
-        /* set input value to store */
-        dispatch({
-          type: GET_SEARCH_INPUT_VALUE,
-          payload: inputValue,
-        });
-      }
+      /* set input value to store */
+      dispatch({
+        type: GET_SEARCH_INPUT_VALUE,
+        payload: inputValue,
+      });
+      /* fetch Search Data */
+      dispatch(fetchDataThunk({
+        question: inputValue,
+      }));
     }
   };
 

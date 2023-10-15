@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { filterElementType } from "@/constants/types";
-import { setSearchDataResult } from "@/api";
 import Image from "next/image";
 import {
   Container,
@@ -17,14 +16,10 @@ import {
 } from "./styles";
 import { useAppSelector } from "@/hooks/useAppSelector";
 import { RootState } from "@/redux/store";
-import {
-  GET_PRICE_FILTERS_SUCCESS,
-  GET_RESULT_SUCCESS,
-} from "@/redux/slices/search-data-slice/types";
-import { getStarted } from "@/redux/slices/search-data-slice";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { GET_FLAG } from "@/redux/slices/sidebar-flag-slice/types";
 import { GET_PRICE_RANGE_VALUE } from "@/redux/slices/price-range-slice/types";
+import { fetchDataThunk } from "@/redux/slices/search-data-slice/api";
 
 const PriceFilter = () => {
   const dispatch = useAppDispatch();
@@ -53,25 +48,12 @@ const PriceFilter = () => {
   useEffect(() => {
     const setPriceFilter = async () => {
       if (priceFilterRange) {
-        const searchData = await setSearchDataResult(
-          inputValue,
-          sortDescription,
-          priceFilterRange,
-        );
-        if (searchData) {
-          /* get loading flag */
-          dispatch(getStarted());
-          /* get result data */
-          dispatch({
-            type: GET_RESULT_SUCCESS,
-            payload: searchData.responseData,
-          });
-          /* get price filters data */
-          dispatch({
-            type: GET_PRICE_FILTERS_SUCCESS,
-            payload: searchData.priceFiltersData,
-          });
-        }
+        /* fetch Search Data */
+        dispatch(fetchDataThunk({
+          question: inputValue,
+          sort: sortDescription,
+          priceRange: priceFilterRange,
+        }));
       }
     };
     setPriceFilter();
