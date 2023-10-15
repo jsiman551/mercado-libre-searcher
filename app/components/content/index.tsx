@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import { productObjectType } from '@/constants/types'
 import EmptyState from '../empty-state'
 import HeaderSearcher from '../header-searcher'
@@ -11,17 +11,26 @@ import { RootState } from '@/redux/store'
 import { ContentContainer, OnlyLongResolutions } from './styles'
 
 const Content = () => {
+  const priceRangeformRef = useRef<HTMLFormElement>(null)
+  const [priceRangeSubmit, setPriceRangeSubmit] = useState<boolean>(false)
   const resultData = useAppSelector(
     (state: RootState) => state.searchData.result,
   )
   return (
     <>
-      <HeaderSearcher />
+      <HeaderSearcher
+        priceRangeformRef={priceRangeformRef}
+        setPriceRangeSubmit={setPriceRangeSubmit}
+      />
       <EmptyState />
       {resultData?.length ? (
         <ContentContainer>
           <OnlyLongResolutions>
-            <PriceFilter />
+            <PriceFilter
+              priceRangeformRef={priceRangeformRef}
+              priceRangeSubmit={priceRangeSubmit}
+              setPriceRangeSubmit={setPriceRangeSubmit}
+            />
           </OnlyLongResolutions>
           <div>
             <SortSelector />

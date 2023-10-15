@@ -1,4 +1,4 @@
-import React, { MouseEvent, useRef } from 'react'
+import React, { MouseEvent, RefObject, useRef } from 'react'
 import Image from 'next/image'
 import { Header, SearchInput, SearchButton, ElementsContainer } from './styles'
 import { useAppDispatch } from '@/hooks/useAppDispatch'
@@ -7,7 +7,12 @@ import { GET_SORT_OPTION } from '@/redux/slices/sort-option-slice/types'
 import { GET_PRICE_RANGE_VALUE } from '@/redux/slices/price-range-slice/types'
 import { fetchDataThunk } from '@/redux/slices/search-data-slice/api'
 
-const HeaderSearcher = () => {
+interface Props {
+  priceRangeformRef: RefObject<HTMLFormElement>
+  setPriceRangeSubmit: (arg: boolean) => void
+}
+
+const HeaderSearcher = ({ priceRangeformRef, setPriceRangeSubmit }: Props) => {
   /* search input value reference */
   const searchInputRef = useRef<HTMLInputElement>(null)
   const dispatch = useAppDispatch()
@@ -40,6 +45,9 @@ const HeaderSearcher = () => {
           question: inputValue,
         }),
       )
+      /* clear price range form */
+      priceRangeformRef.current?.reset()
+      setPriceRangeSubmit(false)
     }
   }
 

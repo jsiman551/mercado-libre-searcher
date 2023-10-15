@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, RefObject } from 'react'
 import { filterElementType } from '@/constants/types'
 import Image from 'next/image'
 import {
@@ -21,7 +21,17 @@ import { GET_FLAG } from '@/redux/slices/sidebar-flag-slice/types'
 import { GET_PRICE_RANGE_VALUE } from '@/redux/slices/price-range-slice/types'
 import { fetchDataThunk } from '@/redux/slices/search-data-slice/api'
 
-const PriceFilter = () => {
+interface Props {
+  priceRangeformRef: RefObject<HTMLFormElement>
+  priceRangeSubmit: boolean
+  setPriceRangeSubmit: (arg: boolean) => void
+}
+
+const PriceFilter = ({
+  priceRangeformRef,
+  priceRangeSubmit,
+  setPriceRangeSubmit,
+}: Props) => {
   const dispatch = useAppDispatch()
   const inputValue = useAppSelector(
     (state: RootState) => state.searchInput.value,
@@ -38,10 +48,9 @@ const PriceFilter = () => {
   const sortOption = useAppSelector(
     (state: RootState) => state.sortOption.option,
   )
-  const [isActiveSubmit, setIsActiveSubmit] = useState<boolean>(false)
+  const [priceRange, setPriceRange] = useState<string>('')
   const minimumInputRef = useRef<HTMLInputElement>(null)
   const maximumInputRef = useRef<HTMLInputElement>(null)
-  const formRef = useRef<HTMLFormElement>(null)
   const { value: sortDescription } = sortOption
 
   /* set price filter */
@@ -65,10 +74,12 @@ const PriceFilter = () => {
   const onChangeSubmit = () => {
     const minimum = minimumInputRef.current?.value
     const maximum = maximumInputRef.current?.value
+    const priceRange = `${minimum || '*'}-${maximum || '*'}`
+    setPriceRange(priceRange)
     if (minimum || maximum) {
-      setIsActiveSubmit(true)
+      setPriceRangeSubmit(true)
     } else {
-      setIsActiveSubmit(false)
+      setPriceRangeSubmit(false)
     }
   }
 
@@ -84,8 +95,8 @@ const PriceFilter = () => {
                 <RangeLink
                   onClick={() => {
                     /* lets clear inputs */
-                    formRef.current?.reset()
-                    setIsActiveSubmit(false)
+                    priceRangeformRef.current?.reset()
+                    setPriceRangeSubmit(false)
                     /* if sidebar is opened */
                     if (isSidebarOpen) {
                       /* set sidebar flag to store */
@@ -109,7 +120,7 @@ const PriceFilter = () => {
           },
         )}
         <RangeElement>
-          <RangeForm ref={formRef}>
+          <RangeForm ref={priceRangeformRef}>
             <InputContainer>
               <RangeInput
                 ref={minimumInputRef}
@@ -128,13 +139,10 @@ const PriceFilter = () => {
             </InputContainer>
             <InputContainer>
               <RangeButton
-                disabled={!isActiveSubmit}
-                $active={isActiveSubmit}
+                disabled={!priceRangeSubmit}
+                $active={priceRangeSubmit}
                 onClick={(e) => {
                   e.preventDefault()
-                  const minimum = minimumInputRef.current?.value
-                  const maximum = maximumInputRef.current?.value
-                  const priceRange = `${minimum || '*'}-${maximum || '*'}`
                   /* if sidebar is opened */
                   if (isSidebarOpen) {
                     /* set sidebar flag to store */
