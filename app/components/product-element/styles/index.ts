@@ -1,5 +1,5 @@
-import { styled } from "styled-components";
-import { desktop, mobile, tablet } from "@/constants/styles";
+import { styled } from 'styled-components'
+import { desktop, mobile, tablet } from '@/constants/styles'
 
 /************Styles For Articles List Section**************/
 /* product list container */
@@ -9,7 +9,7 @@ export const ProductListContainer = styled.div`
   border-radius: 4px;
   margin-top: 1rem;
   margin-bottom: 3rem;
-`;
+`
 
 /* product element container */
 export const Container = styled.div`
@@ -25,7 +25,7 @@ export const Container = styled.div`
   @media ${tablet} {
     flex-direction: row;
   }
-`;
+`
 
 /* product details container */
 export const DetailsContainer = styled.div`
@@ -36,7 +36,7 @@ export const DetailsContainer = styled.div`
     align-items: center;
     width: 80%;
   }
-`;
+`
 
 /* product image Container */
 export const ImageContainer = styled.div`
@@ -44,18 +44,18 @@ export const ImageContainer = styled.div`
   @media ${tablet} {
     text-align: left;
   }
-`;
+`
 
 /* product image */
 export const ProductImage = styled.img`
   border-radius: 4px;
   object-fit: contain;
-`;
+`
 
 /* product text details container */
 export const Details = styled.div`
   margin-left: 1rem;
-`;
+`
 
 /* tag for product price text */
 export const PriceText = styled.p`
@@ -67,7 +67,7 @@ export const PriceText = styled.p`
   @media ${desktop} {
     font-size: 1.25em;
   }
-`;
+`
 
 /* tag for product Title text */
 export const TitleText = styled.h2`
@@ -78,7 +78,7 @@ export const TitleText = styled.h2`
   @media ${desktop} {
     font-size: 1.25em;
   }
-`;
+`
 
 /* tag for product dues text */
 export const DuesText = styled.p`
@@ -88,7 +88,7 @@ export const DuesText = styled.p`
   @media ${desktop} {
     font-size: 1em;
   }
-`;
+`
 
 /* tag for product location text */
 export const LocationText = styled.p`
@@ -104,4 +104,4 @@ export const LocationText = styled.p`
     text-align: left;
     width: 20%;
   }
-`;
+`

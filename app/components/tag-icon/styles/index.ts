@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { styled } from 'styled-components'
 
 /*****Tag Icon Styles******/
 export const TagIconContainer = styled.span<{ $bgColor: string }>`
@@ -10,4 +10,4 @@ export const TagIconContainer = styled.span<{ $bgColor: string }>`
   width: 20px;
   height: 20px;
   margin-left: 8px;
-`;
+`

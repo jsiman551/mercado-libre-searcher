@@ -1,6 +1,6 @@
-import React from "react";
-import Link from "next/link";
-import { setPriceFormat } from "@/tools/formatPrice";
+import React from 'react'
+import Link from 'next/link'
+import { setPriceFormat } from '@/tools/formatPrice'
 import {
   Container,
   DetailsContainer,
@@ -11,8 +11,8 @@ import {
   TitleText,
   DuesText,
   LocationText,
-} from "./styles";
-import TagIcon from "../tag-icon";
+} from './styles'
+import TagIcon from '../tag-icon'
 
 /* Se evidenciaron en la respuesta de la API, cambios que
 no son compatibles con el contrato "Product" como se plantea para el desafio,
@@ -22,28 +22,28 @@ las diferencias respecto al contrato sugerido en github */
 interface ProductProps {
   // no se sugiere el uso del atributo "id" en el diseño
   //id: string;
-  title: string;
+  title: string
   // el atributo "price" es enrealidad de tipo numerico
-  price: number;
+  price: number
   // no se sugiere el uso de "installments" en el diseño
   /*installments: {
         quantity: number;
         amount: string;
     };*/
   address: {
-    state_name: string;
-    city_name: string;
-  };
+    state_name: string
+    city_name: string
+  }
   //se usa "thumbnail" en lugar de "picture"
-  thumbnail: string;
-  condition: string;
+  thumbnail: string
+  condition: string
   shipping: {
     // free_shipping esta dentro del objeto shipping
-    free_shipping: boolean;
-  };
+    free_shipping: boolean
+  }
   /* una milla extra, "permalink" lo estoy añadiendo nuevo para
     convertir las imagenes en enlaces al detalle del producto */
-  permalink: string;
+  permalink: string
 }
 
 const ProductElement = ({
@@ -55,7 +55,7 @@ const ProductElement = ({
   condition,
   permalink,
 }: ProductProps) => {
-  const { free_shipping } = shipping;
+  const { free_shipping } = shipping
   return (
     <Container>
       <DetailsContainer>
@@ -91,7 +91,7 @@ const ProductElement = ({
         {`${address?.city_name}, ${address?.state_name}`}
       </LocationText>
     </Container>
-  );
-};
+  )
+}
 
-export default ProductElement;
+export default ProductElement

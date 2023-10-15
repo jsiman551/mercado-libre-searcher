@@ -1,1 +1,1 @@
-export const GET_FLAG = "sidebarFlag/getFlag";
+export const GET_FLAG = 'sidebarFlag/getFlag'

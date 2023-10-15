@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { tablet, desktop } from "@/constants/styles";
+import styled from 'styled-components'
+import { tablet, desktop } from '@/constants/styles'
 
 /* Content Container */
 export const ContentContainer = styled.div`
@@ -14,7 +14,7 @@ export const ContentContainer = styled.div`
     padding: 0;
     max-width: 1050px;
   }
-`;
+`
 
 /* only appears on long resolutions */
 export const OnlyLongResolutions = styled.div`
@@ -22,4 +22,4 @@ export const OnlyLongResolutions = styled.div`
   @media ${tablet} {
     display: contents;
   }
-`;
+`

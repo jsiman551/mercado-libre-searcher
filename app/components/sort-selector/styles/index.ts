@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { tablet, desktop } from "@/constants/styles";
+import styled from 'styled-components'
+import { tablet, desktop } from '@/constants/styles'
 
 /**************Sort Selector Styles*****************/
 /* Selector Container */
@@ -12,19 +12,19 @@ export const Container = styled.div`
   @media ${tablet} {
     justify-content: end;
   }
-`;
+`
 
 export const FlexBox = styled.div`
   display: flex;
   justify-content: end;
-`;
+`
 
 /* Selector Label */
 export const Label = styled.div`
   margin-right: 0.4rem;
   font-weight: 500;
   font-size: 0.875em;
-`;
+`
 
 /* Selector Text */
 export const OptionText = styled.div`
@@ -35,15 +35,15 @@ export const OptionText = styled.div`
   &:hover {
     color: #3483fa;
   }
-`;
+`
 
 /* Selector Arrow Icon */
 export const ArrowIcon = styled.img<{ $active: boolean }>`
-  transform: ${(props) => (props.$active ? "rotate(180deg)" : "rotate(0deg)")};
+  transform: ${(props) => (props.$active ? 'rotate(180deg)' : 'rotate(0deg)')};
   transition: transform 0.2s ease-out;
   margin-top: 3px;
   margin-left: 2px;
-`;
+`
 
 /* Selector Elements Container */
 export const ElementContainer = styled.ul`
@@ -58,12 +58,12 @@ export const ElementContainer = styled.ul`
   @media ${desktop} {
     padding-right: 1rem;
   }
-`;
+`
 
 /* Selector Elements Option */
 export const ElementOption = styled.li<{ $active: boolean }>`
   border-collapse: collapse;
-  color: ${(props) => (props.$active ? "#3483fa" : "#666")};
+  color: ${(props) => (props.$active ? '#3483fa' : '#666')};
   box-sizing: border-box;
   cursor: pointer;
   align-items: center;
@@ -71,10 +71,10 @@ export const ElementOption = styled.li<{ $active: boolean }>`
   height: 41px;
   border-bottom: 1px solid #d8d8d8;
   padding: 1rem;
-  font-weight: ${(props) => (props.$active ? "500" : "400")};
+  font-weight: ${(props) => (props.$active ? '500' : '400')};
   &:before {
-    background: ${(props) => (props.$active ? "#3483fa" : "")};
-    content: "";
+    background: ${(props) => (props.$active ? '#3483fa' : '')};
+    content: '';
     position: absolute;
     width: 5px;
     height: 41px;
@@ -82,8 +82,8 @@ export const ElementOption = styled.li<{ $active: boolean }>`
   }
   &:hover {
     &:after {
-      background: ${(props) => (props.$active ? "#3483fa" : "#9cc4db")};
-      content: "";
+      background: ${(props) => (props.$active ? '#3483fa' : '#9cc4db')};
+      content: '';
       left: 0;
       position: absolute;
       width: 5px;
@@ -111,7 +111,7 @@ export const ElementOption = styled.li<{ $active: boolean }>`
       border-bottom-left-radius: 0.375em;
     }
   }
-`;
+`
 
 /****Sidebar For Filters in Mobile Resolution*****/
 export const SidebarButton = styled.button`
@@ -123,4 +123,4 @@ export const SidebarButton = styled.button`
   @media ${tablet} {
     display: none;
   }
-`;
+`

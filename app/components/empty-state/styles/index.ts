@@ -1,5 +1,5 @@
-import { styled } from "styled-components";
-import { tablet } from "@/constants/styles";
+import { styled } from 'styled-components'
+import { tablet } from '@/constants/styles'
 
 /* container for empty results */
 export const EmptyResultsContainer = styled.div`
@@ -11,9 +11,9 @@ export const EmptyResultsContainer = styled.div`
     margin: 3rem auto 0 auto;
     max-width: 600px;
   }
-`;
+`
 
 /* message for empty results */
 export const EmptyResultsText = styled.p`
   text-align: center;
-`;
+`

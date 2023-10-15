@@ -1,5 +1,5 @@
-import { styled } from "styled-components";
-import { desktop, tablet } from "@/constants/styles";
+import { styled } from 'styled-components'
+import { desktop, tablet } from '@/constants/styles'
 
 /************Styles For Header Section**************/
 /* Header where searcher is */
@@ -15,7 +15,7 @@ export const Header = styled.header`
     padding: 0.6rem 0 0.6rem 0;
     justify-content: center;
   }
-`;
+`
 
 /* Header elements container (form) */
 export const ElementsContainer = styled.form`
@@ -25,7 +25,7 @@ export const ElementsContainer = styled.form`
   @media ${desktop} {
     max-width: 1000px;
   }
-`;
+`
 
 /* input to search for items */
 export const SearchInput = styled.input`
@@ -39,7 +39,7 @@ export const SearchInput = styled.input`
   &:focus {
     outline: none;
   }
-`;
+`
 
 /* button to submit search info */
 export const SearchButton = styled.button`
@@ -52,4 +52,4 @@ export const SearchButton = styled.button`
   border-bottom-right-radius: 4px;
   padding-top: 4px;
   cursor: pointer;
-`;
+`

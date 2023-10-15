@@ -1,22 +1,22 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface PriceRangeState {
-  value: string;
+  value: string
 }
 
 const initialState: PriceRangeState = {
-  value: "",
-};
+  value: '',
+}
 
 const priceRangeSlice = createSlice({
-  name: "priceRange",
+  name: 'priceRange',
   initialState,
   reducers: {
     getPriceRangeValue: (state, action: PayloadAction<string>) => {
-      state.value = action.payload;
+      state.value = action.payload
     },
   },
-});
+})
 
-export const { getPriceRangeValue } = priceRangeSlice.actions;
-export default priceRangeSlice.reducer;
+export const { getPriceRangeValue } = priceRangeSlice.actions
+export default priceRangeSlice.reducer

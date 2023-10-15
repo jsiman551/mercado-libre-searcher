@@ -1,33 +1,26 @@
-/* eslint-disable no-unused-vars */
-type sortOptionsObjectType = {
-  id?: number;
-  description?: string;
-  value?: string;
-};
-
 export type productObjectType = {
-  thumbnail?: string;
-  title?: string;
-  price?: number;
+  thumbnail?: string
+  title?: string
+  price?: number
   shipping?: {
-    free_shipping: boolean;
-  };
+    free_shipping: boolean
+  }
   address?: {
-    state_name: string;
-    city_name: string;
-  };
-  condition?: string;
-  permalink?: string;
-};
+    state_name: string
+    city_name: string
+  }
+  condition?: string
+  permalink?: string
+}
 
 export type sortOptionsType = {
-  id?: number;
-  description?: string;
-  value?: string;
-};
+  id?: number
+  description?: string
+  value?: string
+}
 
 export type filterElementType = {
-  id?: string;
-  name?: string;
-  results?: number;
-};
+  id?: string
+  name?: string
+  results?: number
+}

@@ -1,9 +1,9 @@
-import React, { useEffect, useState, useRef } from "react";
-import Image from "next/image";
-import { SortOptions } from "@/constants";
-import { sortOptionsType } from "@/constants/types";
-import useOutsideClick from "@/hooks/useOutsideClick";
-import MobileSidebar from "../mobile-sidebar";
+import React, { useEffect, useState, useRef } from 'react'
+import Image from 'next/image'
+import { SortOptions } from '@/constants'
+import { sortOptionsType } from '@/constants/types'
+import useOutsideClick from '@/hooks/useOutsideClick'
+import MobileSidebar from '../mobile-sidebar'
 import {
   Container,
   SidebarButton,
@@ -13,48 +13,50 @@ import {
   ArrowIcon,
   ElementContainer,
   ElementOption,
-} from "./styles";
-import { useAppDispatch } from "@/hooks/useAppDispatch";
-import { useAppSelector } from "@/hooks/useAppSelector";
-import { RootState } from "@/redux/store";
-import { GET_SORT_OPTION } from "@/redux/slices/sort-option-slice/types";
-import { GET_FLAG } from "@/redux/slices/sidebar-flag-slice/types";
-import { fetchDataThunk } from "@/redux/slices/search-data-slice/api";
+} from './styles'
+import { useAppDispatch } from '@/hooks/useAppDispatch'
+import { useAppSelector } from '@/hooks/useAppSelector'
+import { RootState } from '@/redux/store'
+import { GET_SORT_OPTION } from '@/redux/slices/sort-option-slice/types'
+import { GET_FLAG } from '@/redux/slices/sidebar-flag-slice/types'
+import { fetchDataThunk } from '@/redux/slices/search-data-slice/api'
 
 const SortSelector = () => {
-  const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch()
   const inputValue = useAppSelector(
     (state: RootState) => state.searchInput.value,
-  );
+  )
   const priceFilterRange = useAppSelector(
     (state: RootState) => state.priceRange.value,
-  );
+  )
   const sortOption = useAppSelector(
     (state: RootState) => state.sortOption.option,
-  );
-  const [isSelectorShown, setIsSelectorShown] = useState<boolean>(false);
-  const optionsRef = useRef<HTMLDivElement>(null);
-  const { description, value: sortDescription } = sortOption;
+  )
+  const [isSelectorShown, setIsSelectorShown] = useState<boolean>(false)
+  const optionsRef = useRef<HTMLDivElement>(null)
+  const { description, value: sortDescription } = sortOption
 
   /* set new results as soon as there is a new sort option */
   useEffect(() => {
     const setNewSearch = async () => {
       /* fetch Search Data */
-      dispatch(fetchDataThunk({
-        question: inputValue,
-        sort: sortDescription,
-        priceRange: priceFilterRange,
-      }));
-    };
-    setNewSearch();
-  }, [sortOption]);
+      dispatch(
+        fetchDataThunk({
+          question: inputValue,
+          sort: sortDescription,
+          priceRange: priceFilterRange,
+        }),
+      )
+    }
+    setNewSearch()
+  }, [sortOption])
 
   /* this hook will help on closing the "options container" when user clicks outside it */
   useOutsideClick(optionsRef, () => {
     if (isSelectorShown) {
-      setIsSelectorShown(false);
+      setIsSelectorShown(false)
     }
-  });
+  })
 
   return (
     <>
@@ -65,11 +67,11 @@ const SortSelector = () => {
             dispatch({
               type: GET_FLAG,
               payload: true,
-            });
+            })
           }}
         >
           <Image
-            src={"/icons/burger-icon.svg"}
+            src={'/icons/burger-icon.svg'}
             alt="open sidebar"
             width={20}
             height={20}
@@ -92,7 +94,7 @@ const SortSelector = () => {
           {isSelectorShown ? (
             <ElementContainer>
               {SortOptions.map((option: sortOptionsType, index: number) => {
-                const { id, description } = option;
+                const { id, description } = option
                 return (
                   <ElementOption
                     key={index}
@@ -102,13 +104,13 @@ const SortSelector = () => {
                       dispatch({
                         type: GET_SORT_OPTION,
                         payload: option,
-                      });
-                      setIsSelectorShown(false);
+                      })
+                      setIsSelectorShown(false)
                     }}
                   >
                     {description}
                   </ElementOption>
-                );
+                )
               })}
             </ElementContainer>
           ) : null}
@@ -116,7 +118,7 @@ const SortSelector = () => {
       </Container>
       <MobileSidebar />
     </>
-  );
-};
+  )
+}
 
-export default SortSelector;
+export default SortSelector

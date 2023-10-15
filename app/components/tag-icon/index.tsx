@@ -1,11 +1,11 @@
-import React from "react";
-import Image from "next/image";
-import { TagIconContainer } from "./styles";
+import React from 'react'
+import Image from 'next/image'
+import { TagIconContainer } from './styles'
 
 interface Props {
-  imgUrl: string;
-  bgColor: string;
-  altDescription: string;
+  imgUrl: string
+  bgColor: string
+  altDescription: string
 }
 
 const TagIcon = ({ imgUrl, bgColor, altDescription }: Props) => {
@@ -13,7 +13,7 @@ const TagIcon = ({ imgUrl, bgColor, altDescription }: Props) => {
     <TagIconContainer $bgColor={bgColor}>
       <Image src={imgUrl} alt={altDescription} width={12} height={12} />
     </TagIconContainer>
-  );
-};
+  )
+}
 
-export default TagIcon;
+export default TagIcon

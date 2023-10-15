@@ -1,7 +1,7 @@
-import Head from "next/head";
-import { Provider } from "react-redux";
-import { store } from "@/redux/store";
-import Content from "@/components/content";
+import Head from 'next/head'
+import { Provider } from 'react-redux'
+import { store } from '@/redux/store'
+import Content from '@/components/content'
 
 export default function Home() {
   return (
@@ -20,5 +20,5 @@ export default function Home() {
         </main>
       </Provider>
     </>
-  );
+  )
 }

@@ -1,1 +1,1 @@
-export const GET_SEARCH_INPUT_VALUE = "searchInput/getSearchInputValue";
+export const GET_SEARCH_INPUT_VALUE = 'searchInput/getSearchInputValue'

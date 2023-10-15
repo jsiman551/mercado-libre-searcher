@@ -1,22 +1,22 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface SidebarFlagState {
-  flag: boolean;
+  flag: boolean
 }
 
 const initialState: SidebarFlagState = {
   flag: false,
-};
+}
 
 const sidebarFlagSlice = createSlice({
-  name: "sidebarFlag",
+  name: 'sidebarFlag',
   initialState,
   reducers: {
     getFlag: (state, action: PayloadAction<boolean>) => {
-      state.flag = action.payload;
+      state.flag = action.payload
     },
   },
-});
+})
 
-export const { getFlag } = sidebarFlagSlice.actions;
-export default sidebarFlagSlice.reducer;
+export const { getFlag } = sidebarFlagSlice.actions
+export default sidebarFlagSlice.reducer

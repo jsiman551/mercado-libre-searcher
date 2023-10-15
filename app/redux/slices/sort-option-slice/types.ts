@@ -1,1 +1,1 @@
-export const GET_SORT_OPTION = "sortOption/getSortOption";
+export const GET_SORT_OPTION = 'sortOption/getSortOption'

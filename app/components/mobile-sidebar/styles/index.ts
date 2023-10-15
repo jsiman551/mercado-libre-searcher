@@ -1,5 +1,5 @@
-import { styled } from "styled-components";
-import { tablet } from "@/constants/styles";
+import { styled } from 'styled-components'
+import { tablet } from '@/constants/styles'
 
 /****Sidebar For Filters in Mobile Resolution*****/
 /* overlay element */
@@ -13,11 +13,11 @@ export const SidebarOverlay = styled.div<{ $isOpen: boolean }>`
   box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.25);
   transition: transform 0.5s;
   transform: ${(props) =>
-    props.$isOpen ? "translate(0)" : "translate(-252px)"};
+    props.$isOpen ? 'translate(0)' : 'translate(-252px)'};
   @media ${tablet} {
     display: none;
   }
-`;
+`
 
 /* close button styles */
 export const SidebarCloseButton = styled.button`
@@ -27,4 +27,4 @@ export const SidebarCloseButton = styled.button`
   border-radius: 4px;
   font-size: 0.875em;
   margin: 0.4rem 0.4rem 0 0;
-`;
+`

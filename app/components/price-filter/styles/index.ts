@@ -1,5 +1,5 @@
-import { styled } from "styled-components";
-import { desktop, tablet } from "@/constants/styles";
+import { styled } from 'styled-components'
+import { desktop, tablet } from '@/constants/styles'
 
 /****************Price Filter Styles*********************/
 /* Price Filter Container */
@@ -19,7 +19,7 @@ export const Container = styled.div`
   @media ${desktop} {
     width: 30%;
   }
-`;
+`
 
 /* Price Label */
 export const Label = styled.h3`
@@ -28,13 +28,13 @@ export const Label = styled.h3`
   font-weight: 600;
   line-height: 1.25;
   margin-bottom: 8px;
-`;
+`
 
 /* Price List Container */
 export const ListContainer = styled.ul`
   padding: 0;
   margin-top: 0;
-`;
+`
 
 /* Price List Element */
 export const RangeElement = styled.li`
@@ -44,7 +44,7 @@ export const RangeElement = styled.li`
   font-size: 0.875em;
   margin: 0 0 6px;
   cursor: pointer;
-`;
+`
 
 /* Price Link */
 export const RangeLink = styled.a`
@@ -58,7 +58,7 @@ export const RangeLink = styled.a`
   &:hover span {
     color: #3483fa;
   }
-`;
+`
 
 /* Price Link Name */
 export const RangeLinkName = styled.span`
@@ -68,7 +68,7 @@ export const RangeLinkName = styled.span`
   float: left;
   font-size: 0.875em;
   margin-left: 0;
-`;
+`
 
 /* Price Link Quantity */
 export const RangeLinkQuantity = styled.span`
@@ -78,7 +78,7 @@ export const RangeLinkQuantity = styled.span`
   float: left;
   font-size: 0.875em;
   margin-left: 6px;
-`;
+`
 
 /* Price Filter Form */
 export const RangeForm = styled.form`
@@ -88,7 +88,7 @@ export const RangeForm = styled.form`
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
-`;
+`
 
 /* Price Input Container */
 export const InputContainer = styled.div`
@@ -98,14 +98,14 @@ export const InputContainer = styled.div`
   &:first-child {
     &:after {
       color: #999;
-      content: "—";
+      content: '—';
       float: left;
       margin: 0 5px;
       padding: 7px 0;
       font-size: 0.75em;
     }
   }
-`;
+`
 
 /* Price Filter Input */
 export const RangeInput = styled.input`
@@ -126,7 +126,7 @@ export const RangeInput = styled.input`
       inset 0 0 0 2px #fff,
       0 0 0 2px #2968c8;
   }
-`;
+`
 
 /* Price Filter Button */
 export const RangeButton = styled.button<{ $active: boolean }>`
@@ -139,5 +139,5 @@ export const RangeButton = styled.button<{ $active: boolean }>`
   height: 24px;
   margin-left: 8px;
   width: 24px;
-  background-color: ${(props) => (props.$active ? "#3483fa" : "#e0e0e0")};
-`;
+  background-color: ${(props) => (props.$active ? '#3483fa' : '#e0e0e0')};
+`
