@@ -1,14 +1,23 @@
+import { ReactNode } from 'react';
 import { render, screen } from '@testing-library/react'
 import Home from '@/pages/index'
 
+jest.mock('next/head', () => {
+  return {
+    __esModule: true,
+    default: ({ children }: { children: ReactNode }) => <div>{children}</div>,
+  };
+});
+
 describe('Home', () => {
-  it('renders the default Next.js page', () => {
-    render(<Home />)
+  it('renders Home, the main page', () => {
+    render(<Home />);
+    expect(document.title).toBe('Buscador de Productos');
 
-    const logo = screen.getByRole('img', {
-      name: /Vercel Logo/i,
-    })
+    const metaDescription = document.querySelector('meta[name="description"]');
+    expect(metaDescription).toHaveAttribute('content', 'Buscador de Productos de Mercado Libre');
 
-    expect(logo).toBeInTheDocument()
-  })
-})
+    const mainElement = screen.getByTestId('mainContainer');
+    expect(mainElement).toBeInTheDocument();
+  });
+});

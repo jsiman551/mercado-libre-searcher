@@ -10,7 +10,7 @@ interface Props {
 
 const TagIcon = ({ imgUrl, bgColor, altDescription }: Props) => {
   return (
-    <TagIconContainer $bgColor={bgColor}>
+    <TagIconContainer $bgColor={bgColor} data-testid="tagIconContainer">
       <Image src={imgUrl} alt={altDescription} width={12} height={12} />
     </TagIconContainer>
   )

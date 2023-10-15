@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders sort opctions selector unchanged 1`] = `
+<div>
+  <div
+    class="sc-4eb0fcc4-0 gxVaUM"
+    data-testid="container"
+  >
+    <button
+      class="sc-4eb0fcc4-7 gDdpA"
+    >
+      <img
+        alt="open sidebar"
+        data-nimg="1"
+        decoding="async"
+        height="20"
+        loading="lazy"
+        src="/icons/burger-icon.svg"
+        style="color: transparent;"
+        width="20"
+      />
+    </button>
+    <div
+      class="sc-4eb0fcc4-1 gepiAb"
+    >
+      <div
+        class="sc-4eb0fcc4-2 dUpgjI"
+      >
+        <p>
+          Ordenar por
+        </p>
+      </div>
+      <div
+        class="sc-4eb0fcc4-3 fRsoGh"
+      >
+        <p>
+          Más relevantes
+        </p>
+        <img
+          alt="selector"
+          class="sc-4eb0fcc4-4 cEjBtF"
+          height="16"
+          src="/icons/arrow-selector-icon.svg"
+          width="16"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

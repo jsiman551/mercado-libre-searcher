@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Product Element Component 1`] = `
+<div>
+  <div
+    class="sc-guDMob iyvFoV"
+    data-testid="container"
+  >
+    <div
+      class="sc-dmyDmy ejzjv"
+    >
+      <div
+        class="sc-hLQTFJ iSfHxC"
+      >
+        <a
+          href="https://casa.mercadolibre.com.ar/MLA-1537731218-casa-en-venta-en-ecuestre-_JM"
+          target="_blank"
+        >
+          <img
+            alt="Casa En Venta En Ecuestre (new)"
+            class="sc-eDLKEg jRGps"
+            height="160"
+            src="http://http2.mlstatic.com/D_934244-MLA72205123280_102023-I.jpg"
+            width="160"
+          />
+        </a>
+      </div>
+      <div
+        class="sc-jTQDJr dmUHMV"
+      >
+        <p
+          class="sc-gLLuHO brhnQY"
+        >
+          $ 500
+        </p>
+        <h2
+          class="sc-iBdoyZ kjSFWv"
+        >
+          Casa En Venta En Ecuestre (new) (New)
+        </h2>
+        <p
+          class="sc-fsYfxw gPyZgP"
+        >
+          En 3 cuotas de $15.333
+        </p>
+      </div>
+    </div>
+    <p
+      class="sc-qZruQ jObgFK"
+    >
+      Costa Esmeralda, Bs.As. Costa Atlántica
+    </p>
+  </div>
+</div>
+`;

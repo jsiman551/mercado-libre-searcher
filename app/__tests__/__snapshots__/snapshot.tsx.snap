@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home renders homepage 1`] = `
+<div>
+  <main
+    data-testid="mainContainer"
+  >
+    <header
+      class="sc-dmyDmy kleTkG"
+    >
+      <img
+        alt="logo"
+        data-nimg="1"
+        decoding="async"
+        height="40"
+        loading="lazy"
+        src="/_next/image?url=%2Fimages%2Flogo_ml.png&w=128&q=75"
+        srcset="/_next/image?url=%2Fimages%2Flogo_ml.png&w=64&q=75 1x, /_next/image?url=%2Fimages%2Flogo_ml.png&w=128&q=75 2x"
+        style="color: transparent;"
+        width="55"
+      />
+      <form
+        class="sc-hLQTFJ lmISJI"
+      >
+        <input
+          class="sc-eDLKEg khhdpv"
+        />
+        <button
+          class="sc-jTQDJr gYCnUh"
+          type="submit"
+        >
+          <img
+            alt="searcher"
+            data-nimg="1"
+            decoding="async"
+            height="25"
+            loading="lazy"
+            src="/icons/search-icon.svg"
+            style="color: transparent;"
+            width="20"
+          />
+        </button>
+      </form>
+    </header>
+    <div
+      class="sc-beyTiQ TyDoB"
+    >
+      <p
+        class="sc-guDMob kbsjPd"
+      >
+        Intenta realizar una búsqueda para visualizar una lista de productos.
+      </p>
+    </div>
+    <div
+      class="sc-iuONiq cdyfsi"
+    >
+      <button
+        class="sc-cyZbyy jNKGxu"
+      >
+        Cerrar
+      </button>
+      <div
+        class="sc-gLLuHO fiRPec"
+      >
+        <h3
+          class="sc-iBdoyZ bWBYOl"
+        >
+          Precio
+        </h3>
+        <ul
+          class="sc-fsYfxw ecjrvm"
+        >
+          <li
+            class="sc-qZruQ ioreGi"
+          >
+            <form
+              class="sc-csKJRI kKskzZ"
+            >
+              <div
+                class="sc-eTNxZ dJgfro"
+              >
+                <input
+                  class="sc-brSaGm eawDVu"
+                  placeholder="Mínimo"
+                  type="number"
+                />
+              </div>
+              <div
+                class="sc-eTNxZ dJgfro"
+              >
+                <input
+                  class="sc-brSaGm eawDVu"
+                  placeholder="Máximo"
+                  type="number"
+                />
+              </div>
+              <div
+                class="sc-eTNxZ dJgfro"
+              >
+                <button
+                  class="sc-ktwNLz hmGNUd"
+                  disabled=""
+                >
+                  <img
+                    alt="submit price filter"
+                    data-nimg="1"
+                    decoding="async"
+                    height="20"
+                    loading="lazy"
+                    src="/icons/arrow-filter-icon.svg"
+                    style="color: transparent;"
+                    width="20"
+                  />
+                </button>
+              </div>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </main>
+</div>
+`;

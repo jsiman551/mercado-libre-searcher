@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders TagIcon component with expected content for Free Shipping Icon 1`] = `
+<div>
+  <span
+    class="sc-beyTiQ euMBhX"
+    data-testid="tagIconContainer"
+  >
+    <img
+      alt="free shipping"
+      data-nimg="1"
+      decoding="async"
+      height="12"
+      loading="lazy"
+      src="/icons/truck-icon.svg"
+      style="color: transparent;"
+      width="12"
+    />
+  </span>
+</div>
+`;

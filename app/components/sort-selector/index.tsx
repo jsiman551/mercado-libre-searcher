@@ -58,8 +58,7 @@ const SortSelector = () => {
   })
 
   return (
-    <>
-      <Container>
+      <Container data-testid="container">
         <SidebarButton
           onClick={() => {
             /* set sidebar flag to store */
@@ -115,7 +114,6 @@ const SortSelector = () => {
           ) : null}
         </FlexBox>
       </Container>
-    </>
   )
 }
 
