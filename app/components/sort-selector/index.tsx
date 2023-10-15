@@ -3,7 +3,6 @@ import Image from 'next/image'
 import { SortOptions } from '@/constants'
 import { sortOptionsType } from '@/constants/types'
 import useOutsideClick from '@/hooks/useOutsideClick'
-import MobileSidebar from '../mobile-sidebar'
 import {
   Container,
   SidebarButton,
@@ -116,7 +115,6 @@ const SortSelector = () => {
           ) : null}
         </FlexBox>
       </Container>
-      <MobileSidebar />
     </>
   )
 }

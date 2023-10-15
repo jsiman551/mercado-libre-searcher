@@ -9,6 +9,7 @@ import SortSelector from '../sort-selector'
 import { useAppSelector } from '@/hooks/useAppSelector'
 import { RootState } from '@/redux/store'
 import { ContentContainer, OnlyLongResolutions } from './styles'
+import MobileSidebar from '../mobile-sidebar'
 
 const Content = () => {
   const priceRangeformRef = useRef<HTMLFormElement>(null)
@@ -62,6 +63,11 @@ const Content = () => {
           </div>
         </ContentContainer>
       ) : null}
+      <MobileSidebar
+        priceRangeformRef={priceRangeformRef}
+        priceRangeSubmit={priceRangeSubmit}
+        setPriceRangeSubmit={setPriceRangeSubmit}
+      />
     </>
   )
 }

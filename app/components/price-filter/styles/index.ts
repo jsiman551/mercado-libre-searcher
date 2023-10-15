@@ -8,11 +8,13 @@ export const Container = styled.div`
   box-sizing: border-box;
   padding-right: 1rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
   width: 80%;
-  margin: 2rem 0 0 1rem;
+  margin: 3rem 0 0 1rem;
   @media ${tablet} {
     border: 0;
     margin-left: 0;
+    margin-top: 2rem;
     width: 45%;
     padding-top: 3rem;
   }
@@ -123,8 +125,8 @@ export const RangeInput = styled.input`
   &:focus {
     outline: 0;
     box-shadow:
-      inset 0 0 0 2px #fff,
-      0 0 0 2px #2968c8;
+      inset 0 0 0 1px #fff,
+      0 0 0 1px #2968c8;
   }
 `
 

@@ -26,5 +26,5 @@ export const SidebarCloseButton = styled.button`
   border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: 4px;
   font-size: 0.875em;
-  margin: 0.4rem 0.4rem 0 0;
+  margin: 0.6rem 0.6rem 0 0;
 `
