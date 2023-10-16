@@ -58,7 +58,7 @@ const SortSelector = () => {
   })
 
   return (
-    <Container data-testid="container">
+    <Container data-testid="sortContainer">
       <SidebarButton
         onClick={() => {
           /* set sidebar flag to store */

@@ -12,8 +12,8 @@ describe('SortSelector', () => {
         <SortSelector />
       </Provider>,
     )
-    const mainContainer = screen.getByTestId('container')
-    expect(mainContainer).toBeInTheDocument()
+    const sortContainer = screen.getByTestId('sortContainer')
+    expect(sortContainer).toBeInTheDocument()
   })
 })
 

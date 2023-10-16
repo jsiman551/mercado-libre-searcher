@@ -84,7 +84,7 @@ const PriceFilter = ({
   }
 
   return (
-    <Container>
+    <Container data-testid="priceFilterContainer">
       <Label>Precio</Label>
       <ListContainer>
         {priceFilters?.map(

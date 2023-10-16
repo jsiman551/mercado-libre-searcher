@@ -57,7 +57,7 @@ const ProductElement = ({
 }: ProductProps) => {
   const { free_shipping } = shipping
   return (
-    <Container data-testid="container">
+    <Container data-testid="productContainer">
       <DetailsContainer>
         <ImageContainer>
           <Link href={permalink} target="_blank">

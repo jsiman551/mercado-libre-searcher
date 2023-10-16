@@ -13,6 +13,7 @@ exports[`renders MobileSidebar component 1`] = `
     </button>
     <div
       class="sc-beyTiQ dntuzr"
+      data-testid="priceFilterContainer"
     >
       <h3
         class="sc-guDMob dEpnaU"

@@ -4,7 +4,7 @@ exports[`renders Product Element Component 1`] = `
 <div>
   <div
     class="sc-guDMob iyvFoV"
-    data-testid="container"
+    data-testid="productContainer"
   >
     <div
       class="sc-dmyDmy ejzjv"

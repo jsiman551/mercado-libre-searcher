@@ -5,14 +5,15 @@ import { store } from '@/redux/store'
 import 'jest-styled-components'
 
 describe('MobileSidebar', () => {
+  const priceRangeformRef = { current: document.createElement('form') }
+  const setPriceRangeSubmit = jest.fn()
   it('renders MobileSidebar component with initial open state', () => {
-    // Render the component with an initially open sidebar
     render(
       <Provider store={store}>
         <MobileSidebar
-          priceRangeformRef={{ current: null }}
+          priceRangeformRef={priceRangeformRef}
           priceRangeSubmit={false}
-          setPriceRangeSubmit={() => {}}
+          setPriceRangeSubmit={setPriceRangeSubmit}
         />
       </Provider>,
     )
@@ -24,13 +25,12 @@ describe('MobileSidebar', () => {
   })
 
   it('closes the sidebar when the close button is clicked', () => {
-    // Render the component with an initially open sidebar
     render(
       <Provider store={store}>
         <MobileSidebar
-          priceRangeformRef={{ current: null }}
+          priceRangeformRef={priceRangeformRef}
           priceRangeSubmit={false}
-          setPriceRangeSubmit={() => {}}
+          setPriceRangeSubmit={setPriceRangeSubmit}
         />
       </Provider>,
     )

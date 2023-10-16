@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders price filter component 1`] = `
+<div>
+  <div
+    class="sc-beyTiQ dntuzr"
+    data-testid="priceFilterContainer"
+  >
+    <h3
+      class="sc-guDMob dEpnaU"
+    >
+      Precio
+    </h3>
+    <ul
+      class="sc-dmyDmy pJniv"
+    >
+      <li
+        class="sc-hLQTFJ fBqJzu"
+      >
+        <form
+          class="sc-iBdoyZ kMxeqU"
+        >
+          <div
+            class="sc-fsYfxw iWgysI"
+          >
+            <input
+              class="sc-qZruQ jNgvfr"
+              placeholder="Mínimo"
+              type="number"
+            />
+          </div>
+          <div
+            class="sc-fsYfxw iWgysI"
+          >
+            <input
+              class="sc-qZruQ jNgvfr"
+              placeholder="Máximo"
+              type="number"
+            />
+          </div>
+          <div
+            class="sc-fsYfxw iWgysI"
+          >
+            <button
+              class="sc-jsEeA-d bgWXgc"
+              disabled=""
+            >
+              <img
+                alt="submit price filter"
+                data-nimg="1"
+                decoding="async"
+                height="20"
+                loading="lazy"
+                src="/icons/arrow-filter-icon.svg"
+                style="color: transparent;"
+                width="20"
+              />
+            </button>
+          </div>
+        </form>
+      </li>
+    </ul>
+  </div>
+</div>
+`;

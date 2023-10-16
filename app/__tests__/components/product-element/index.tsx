@@ -20,7 +20,7 @@ export const mockProps = {
 describe('Product Element', () => {
   it('renders Product Element Component with expected content', () => {
     render(<ProductElement {...mockProps} />)
-    const mainElement = screen.getByTestId('container')
+    const mainElement = screen.getByTestId('productContainer')
 
     expect(mainElement).toBeInTheDocument()
 

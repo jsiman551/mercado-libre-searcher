@@ -4,7 +4,7 @@ exports[`renders sort opctions selector unchanged 1`] = `
 <div>
   <div
     class="sc-4eb0fcc4-0 gxVaUM"
-    data-testid="container"
+    data-testid="sortContainer"
   >
     <button
       class="sc-4eb0fcc4-7 gDdpA"

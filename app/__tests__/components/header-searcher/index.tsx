@@ -51,7 +51,7 @@ describe('HeaderSearcher', () => {
     const searchInput = screen.getByRole('textbox')
     const searchButton = screen.getByRole('button')
 
-    // Mock necessary actions
+    // actions
     const mockDispatch = jest.fn()
     jest.spyOn(store, 'dispatch').mockImplementation(mockDispatch)
 
