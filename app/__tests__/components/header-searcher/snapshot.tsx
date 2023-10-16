@@ -1,12 +1,15 @@
 import { render } from '@testing-library/react'
-import SortSelector from '@/components/sort-selector'
 import { store } from '@/redux/store'
 import { Provider } from 'react-redux'
+import HeaderSearcher from '@/components/header-searcher'
 
-it('renders sort opctions selector unchanged', () => {
+it('renders HeaderSearcher component', () => {
   const { container } = render(
     <Provider store={store}>
-      <SortSelector />
+      <HeaderSearcher
+        priceRangeformRef={{ current: null }}
+        setPriceRangeSubmit={() => {}}
+      />
     </Provider>,
   )
   expect(container).toMatchSnapshot()

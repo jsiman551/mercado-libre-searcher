@@ -55,7 +55,7 @@ const PriceFilter = ({
 
   /* set price filter */
   useEffect(() => {
-    const setPriceFilter = async () => {
+    const setPriceFilter = (): void => {
       if (priceFilterRange) {
         /* fetch Search Data */
         dispatch(
@@ -71,7 +71,7 @@ const PriceFilter = ({
   }, [priceFilterRange])
 
   /* set submit button to true */
-  const onChangeSubmit = () => {
+  const onChangeSubmit = (): void => {
     const minimum = minimumInputRef.current?.value
     const maximum = maximumInputRef.current?.value
     const priceRange = `${minimum || '*'}-${maximum || '*'}`

@@ -17,9 +17,7 @@ const HeaderSearcher = ({ priceRangeformRef, setPriceRangeSubmit }: Props) => {
   const searchInputRef = useRef<HTMLInputElement>(null)
   const dispatch = useAppDispatch()
 
-  const onSearchAction = async (
-    event: MouseEvent<HTMLButtonElement>,
-  ): Promise<void> => {
+  const onSearchAction = (event: MouseEvent<HTMLButtonElement>): void => {
     event.preventDefault()
     const inputValue = searchInputRef.current?.value || ''
     /* there must be a value in the search input */
@@ -52,7 +50,7 @@ const HeaderSearcher = ({ priceRangeformRef, setPriceRangeSubmit }: Props) => {
   }
 
   return (
-    <Header>
+    <Header data-testid="headerContainer">
       <Image src="/images/logo_ml.png" alt={'logo'} width={55} height={40} />
       <ElementsContainer>
         <SearchInput ref={searchInputRef} />

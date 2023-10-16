@@ -13,7 +13,7 @@ const EmptyState = () => {
   return (
     <>
       {resultData?.length === 0 || resultData === null ? (
-        <EmptyResultsContainer>
+        <EmptyResultsContainer data-testid="emptyResultsContainer">
           <EmptyResultsText>
             {resultData === null && !loadingState
               ? 'Intenta realizar una búsqueda para visualizar una lista de productos.'

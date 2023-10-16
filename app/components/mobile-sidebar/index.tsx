@@ -23,7 +23,7 @@ const MobileSidebar = ({
   )
 
   return (
-    <SidebarOverlay $isOpen={isSidebarOpen}>
+    <SidebarOverlay $isOpen={isSidebarOpen} data-testid="sidebarContainer">
       <SidebarCloseButton
         onClick={() => {
           /* set sidebar flag to store */

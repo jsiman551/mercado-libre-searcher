@@ -1,12 +1,12 @@
 import { render } from '@testing-library/react'
-import SortSelector from '@/components/sort-selector'
+import EmptyState from '@/components/empty-state'
 import { store } from '@/redux/store'
 import { Provider } from 'react-redux'
 
-it('renders sort opctions selector unchanged', () => {
+it('renders EmptyState component', () => {
   const { container } = render(
     <Provider store={store}>
-      <SortSelector />
+      <EmptyState />
     </Provider>,
   )
   expect(container).toMatchSnapshot()

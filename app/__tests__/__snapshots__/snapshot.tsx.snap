@@ -7,6 +7,7 @@ exports[`Home renders homepage 1`] = `
   >
     <header
       class="sc-dmyDmy kleTkG"
+      data-testid="headerContainer"
     >
       <img
         alt="logo"
@@ -44,6 +45,7 @@ exports[`Home renders homepage 1`] = `
     </header>
     <div
       class="sc-beyTiQ TyDoB"
+      data-testid="emptyResultsContainer"
     >
       <p
         class="sc-guDMob kbsjPd"
@@ -53,6 +55,7 @@ exports[`Home renders homepage 1`] = `
     </div>
     <div
       class="sc-iuONiq cdyfsi"
+      data-testid="sidebarContainer"
     >
       <button
         class="sc-cyZbyy jNKGxu"

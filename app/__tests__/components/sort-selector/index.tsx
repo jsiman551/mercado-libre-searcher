@@ -10,32 +10,32 @@ describe('SortSelector', () => {
     render(
       <Provider store={store}>
         <SortSelector />
-      </Provider>
+      </Provider>,
     )
-    const mainContainer = screen.getByTestId('container');
+    const mainContainer = screen.getByTestId('container')
     expect(mainContainer).toBeInTheDocument()
   })
 })
 
 describe('useOutsideClick', () => {
   it('simulate there is an outside click', () => {
-    const callback = jest.fn();
+    const callback = jest.fn()
 
     const SortComponent = () => {
-      const ref = useRef<HTMLDivElement>(null);
-      useOutsideClick(ref, callback);
+      const ref = useRef<HTMLDivElement>(null)
+      useOutsideClick(ref, callback)
 
-      return <div ref={ref}>Sort Component</div>;
-    };
+      return <div ref={ref}>Sort Component</div>
+    }
 
-    render(<SortComponent />);
+    render(<SortComponent />)
 
     // Simulate an outside click
-    const body = document.body;
-    const clickEvent = new MouseEvent('click', { bubbles: true });
-    body.dispatchEvent(clickEvent);
+    const body = document.body
+    const clickEvent = new MouseEvent('click', { bubbles: true })
+    body.dispatchEvent(clickEvent)
 
     // verify callback has been called
-    expect(callback).toHaveBeenCalled();
-  });
-});
+    expect(callback).toHaveBeenCalled()
+  })
+})

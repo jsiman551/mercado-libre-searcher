@@ -37,7 +37,7 @@ const SortSelector = () => {
 
   /* set new results as soon as there is a new sort option */
   useEffect(() => {
-    const setNewSearch = async () => {
+    const setNewSearch = (): void => {
       /* fetch Search Data */
       dispatch(
         fetchDataThunk({
@@ -58,62 +58,62 @@ const SortSelector = () => {
   })
 
   return (
-      <Container data-testid="container">
-        <SidebarButton
-          onClick={() => {
-            /* set sidebar flag to store */
-            dispatch({
-              type: GET_FLAG,
-              payload: true,
-            })
-          }}
-        >
-          <Image
-            src={'/icons/burger-icon.svg'}
-            alt="open sidebar"
-            width={20}
-            height={20}
+    <Container data-testid="container">
+      <SidebarButton
+        onClick={() => {
+          /* set sidebar flag to store */
+          dispatch({
+            type: GET_FLAG,
+            payload: true,
+          })
+        }}
+      >
+        <Image
+          src={'/icons/burger-icon.svg'}
+          alt="open sidebar"
+          width={20}
+          height={20}
+        />
+      </SidebarButton>
+      <FlexBox ref={optionsRef}>
+        <Label>
+          <p>Ordenar por</p>
+        </Label>
+        <OptionText onClick={() => setIsSelectorShown(!isSelectorShown)}>
+          <p>{description}</p>
+          <ArrowIcon
+            src="/icons/arrow-selector-icon.svg"
+            alt="selector"
+            width={16}
+            height={16}
+            $active={isSelectorShown}
           />
-        </SidebarButton>
-        <FlexBox ref={optionsRef}>
-          <Label>
-            <p>Ordenar por</p>
-          </Label>
-          <OptionText onClick={() => setIsSelectorShown(!isSelectorShown)}>
-            <p>{description}</p>
-            <ArrowIcon
-              src="/icons/arrow-selector-icon.svg"
-              alt="selector"
-              width={16}
-              height={16}
-              $active={isSelectorShown}
-            />
-          </OptionText>
-          {isSelectorShown ? (
-            <ElementContainer>
-              {SortOptions.map((option: sortOptionsType, index: number) => {
-                const { id, description } = option
-                return (
-                  <ElementOption
-                    key={index}
-                    $active={sortOption?.id === id}
-                    onClick={() => {
-                      /* set new sort option */
-                      dispatch({
-                        type: GET_SORT_OPTION,
-                        payload: option,
-                      })
-                      setIsSelectorShown(false)
-                    }}
-                  >
-                    {description}
-                  </ElementOption>
-                )
-              })}
-            </ElementContainer>
-          ) : null}
-        </FlexBox>
-      </Container>
+        </OptionText>
+        {isSelectorShown ? (
+          <ElementContainer>
+            {SortOptions.map((option: sortOptionsType, index: number) => {
+              const { id, description } = option
+              return (
+                <ElementOption
+                  key={index}
+                  $active={sortOption?.id === id}
+                  onClick={() => {
+                    /* set new sort option */
+                    dispatch({
+                      type: GET_SORT_OPTION,
+                      payload: option,
+                    })
+                    setIsSelectorShown(false)
+                  }}
+                >
+                  {description}
+                </ElementOption>
+              )
+            })}
+          </ElementContainer>
+        ) : null}
+      </FlexBox>
+    </Container>
   )
 }
 

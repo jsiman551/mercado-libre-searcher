@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders HeaderSearcher component 1`] = `
+<div>
+  <header
+    class="sc-beyTiQ duVzVU"
+    data-testid="headerContainer"
+  >
+    <img
+      alt="logo"
+      data-nimg="1"
+      decoding="async"
+      height="40"
+      loading="lazy"
+      src="/_next/image?url=%2Fimages%2Flogo_ml.png&w=128&q=75"
+      srcset="/_next/image?url=%2Fimages%2Flogo_ml.png&w=64&q=75 1x, /_next/image?url=%2Fimages%2Flogo_ml.png&w=128&q=75 2x"
+      style="color: transparent;"
+      width="55"
+    />
+    <form
+      class="sc-guDMob dgLuDb"
+    >
+      <input
+        class="sc-dmyDmy gTgxjX"
+      />
+      <button
+        class="sc-hLQTFJ fnXdaH"
+        type="submit"
+      >
+        <img
+          alt="searcher"
+          data-nimg="1"
+          decoding="async"
+          height="25"
+          loading="lazy"
+          src="/icons/search-icon.svg"
+          style="color: transparent;"
+          width="20"
+        />
+      </button>
+    </form>
+  </header>
+</div>
+`;

@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders EmptyState component with expected content 1`] = `
+<div>
+  <div
+    class="sc-beyTiQ TyDoB"
+    data-testid="emptyResultsContainer"
+  >
+    <p
+      class="sc-guDMob kbsjPd"
+    >
+      Intenta realizar una búsqueda para visualizar una lista de productos.
+    </p>
+  </div>
+</div>
+`;
