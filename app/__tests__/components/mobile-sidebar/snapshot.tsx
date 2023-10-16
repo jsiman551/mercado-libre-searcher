@@ -11,7 +11,7 @@ it('renders MobileSidebar component', () => {
         priceRangeSubmit={false}
         setPriceRangeSubmit={() => {}}
       />
-    </Provider>
+    </Provider>,
   )
   expect(container).toMatchSnapshot()
 })

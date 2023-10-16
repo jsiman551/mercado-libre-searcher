@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders EmptyState component with expected content 1`] = `
+exports[`renders EmptyState component 1`] = `
 <div>
   <div
     class="sc-beyTiQ TyDoB"

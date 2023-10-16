@@ -2,6 +2,9 @@ import { render, screen, fireEvent } from '@testing-library/react'
 import HeaderSearcher from '@/components/header-searcher'
 import { Provider } from 'react-redux'
 import { store } from '@/redux/store'
+import { GET_SORT_OPTION } from '@/redux/slices/sort-option-slice/types'
+import { GET_PRICE_RANGE_VALUE } from '@/redux/slices/price-range-slice/types'
+import { GET_SEARCH_INPUT_VALUE } from '@/redux/slices/search-input-slice/types'
 
 describe('HeaderSearcher', () => {
   it('renders HeaderSearcher component with elements', () => {
@@ -59,31 +62,31 @@ describe('HeaderSearcher', () => {
     fireEvent.click(searchButton)
 
     mockDispatch({
-      type: 'GET_SEARCH_INPUT_VALUE',
+      type: GET_SEARCH_INPUT_VALUE,
       payload: 'camisas',
     })
 
     mockDispatch({
-      type: 'GET_SORT_OPTION',
+      type: GET_SORT_OPTION,
       payload: { id: 1, description: 'Más relevantes', value: 'relevance' },
     })
 
     mockDispatch({
-      type: 'GET_PRICE_RANGE_VALUE',
+      type: GET_PRICE_RANGE_VALUE,
       payload: '*-*',
     })
 
     // expect dispatchers to have been called
     expect(mockDispatch).toHaveBeenCalledWith({
-      type: 'GET_SEARCH_INPUT_VALUE',
+      type: GET_SEARCH_INPUT_VALUE,
       payload: 'camisas',
     })
     expect(mockDispatch).toHaveBeenCalledWith({
-      type: 'GET_SORT_OPTION',
+      type: GET_SORT_OPTION,
       payload: { id: 1, description: 'Más relevantes', value: 'relevance' },
     })
     expect(mockDispatch).toHaveBeenCalledWith({
-      type: 'GET_PRICE_RANGE_VALUE',
+      type: GET_PRICE_RANGE_VALUE,
       payload: '*-*',
     })
 
