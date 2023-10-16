@@ -55,9 +55,6 @@ export const ElementContainer = styled.ul`
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.12);
   font-size: 0.875em;
   width: 134px;
-  @media ${desktop} {
-    padding-right: 1rem;
-  }
 `
 
 /* Selector Elements Option */
