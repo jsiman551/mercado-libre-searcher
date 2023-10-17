@@ -1,13 +1,16 @@
 /* Constants For Styling UI */
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components'
 
 /********Global Styles**********/
 export const GlobalStyles = createGlobalStyle`
-  body {
-    margin: 0;
-    background-color: #eeeeee;
-    font-family: "Roboto";
-  }
+  ${css`
+    @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      background-color: #eeeeee;
+    }
+  `}
 `
 
 /************ Breakpoints ****************/

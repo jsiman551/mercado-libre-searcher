@@ -18,11 +18,7 @@
     "paths": {
       "@/*": ["./*"]
     },
-    "types": [
-      "redux-mock-store",
-      "jest",
-      "node",
-    ]
+    "types": ["redux-mock-store", "jest", "node"]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
