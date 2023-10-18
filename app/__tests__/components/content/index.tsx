@@ -19,9 +19,8 @@ describe('Content component', () => {
       },
       sortOption: {
         option: {
-          id: 1,
-          description: 'Más relevantes',
-          value: 'relevance',
+          name: 'Más relevantes',
+          id: 'relevance',
         },
       },
       mobileSidebarFlag: {
@@ -75,9 +74,8 @@ describe('Content component', () => {
       },
       sortOption: {
         option: {
-          id: 1,
-          description: 'Más relevantes',
-          value: 'relevance',
+          name: 'Más relevantes',
+          id: 'relevance',
         },
       },
       mobileSidebarFlag: {

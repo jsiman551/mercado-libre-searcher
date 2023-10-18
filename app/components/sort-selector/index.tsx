@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
 import Image from 'next/image'
-import { SortOptions } from '@/constants'
 import { sortOptionsType } from '@/constants/types'
 import useOutsideClick from '@/hooks/useOutsideClick'
 import {
@@ -16,7 +15,6 @@ import {
 import { useAppDispatch } from '@/hooks/useAppDispatch'
 import { useAppSelector } from '@/hooks/useAppSelector'
 import { RootState } from '@/redux/store'
-import { GET_SORT_OPTION } from '@/redux/slices/sort-option-slice/types'
 import { GET_FLAG } from '@/redux/slices/sidebar-flag-slice/types'
 import { fetchDataThunk } from '@/redux/slices/search-data-slice/api'
 
@@ -28,27 +26,15 @@ const SortSelector = () => {
   const priceFilterRange = useAppSelector(
     (state: RootState) => state.priceRange.value,
   )
-  const sortOption = useAppSelector(
-    (state: RootState) => state.sortOption.option,
+  const sortOptionsArr = useAppSelector(
+    (state: RootState) => state.searchData.sortOptions,
+  )
+  const selectedSortOption = useAppSelector(
+    (state: RootState) => state.sortOption.value,
   )
   const [isSelectorShown, setIsSelectorShown] = useState<boolean>(false)
   const optionsRef = useRef<HTMLDivElement>(null)
-  const { description, value: sortDescription } = sortOption
-
-  /* set new results as soon as there is a new sort option */
-  useEffect(() => {
-    const setNewSearch = (): void => {
-      /* fetch Search Data */
-      dispatch(
-        fetchDataThunk({
-          question: inputValue,
-          sort: sortDescription,
-          priceRange: priceFilterRange,
-        }),
-      )
-    }
-    setNewSearch()
-  }, [sortOption])
+  const { name: sortName } = selectedSortOption
 
   /* this hook will help on closing the "options container" when user clicks outside it */
   useOutsideClick(optionsRef, () => {
@@ -80,7 +66,7 @@ const SortSelector = () => {
           <p>Ordenar por</p>
         </Label>
         <OptionText onClick={() => setIsSelectorShown(!isSelectorShown)}>
-          <p>{description}</p>
+          <p>{sortName}</p>
           <ArrowIcon
             src="/icons/arrow-selector-icon.svg"
             alt="selector"
@@ -91,22 +77,25 @@ const SortSelector = () => {
         </OptionText>
         {isSelectorShown ? (
           <ElementContainer>
-            {SortOptions.map((option: sortOptionsType, index: number) => {
-              const { id, description } = option
+            {sortOptionsArr.map((option: sortOptionsType, index: number) => {
+              const { id, name } = option
               return (
                 <ElementOption
                   key={index}
-                  $active={sortOption?.id === id}
+                  $active={selectedSortOption?.id === id}
                   onClick={() => {
                     /* set new sort option */
-                    dispatch({
-                      type: GET_SORT_OPTION,
-                      payload: option,
-                    })
+                    dispatch(
+                      fetchDataThunk({
+                        question: inputValue,
+                        sort: option,
+                        priceRange: priceFilterRange,
+                      }),
+                    )
                     setIsSelectorShown(false)
                   }}
                 >
-                  {description}
+                  {name}
                 </ElementOption>
               )
             })}

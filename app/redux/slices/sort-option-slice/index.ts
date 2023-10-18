@@ -2,15 +2,14 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { sortOptionsType } from '@/constants/types'
 
 interface SearchInputState {
-  option: sortOptionsType
+  value: sortOptionsType
 }
 
 const initialState: SearchInputState = {
-  option: {
-    id: 1,
-    description: 'Más relevantes',
-    value: 'relevance',
-  },
+  value: {
+    id: "",
+    name: "Selecciona"
+  }
 }
 
 const sortOptionSlice = createSlice({
@@ -18,7 +17,7 @@ const sortOptionSlice = createSlice({
   initialState,
   reducers: {
     getSortOption: (state, action: PayloadAction<sortOptionsType>) => {
-      state.option = action.payload
+      state.value = action.payload
     },
   },
 })

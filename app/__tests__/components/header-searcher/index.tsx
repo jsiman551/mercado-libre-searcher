@@ -68,7 +68,7 @@ describe('HeaderSearcher', () => {
 
     mockDispatch({
       type: GET_SORT_OPTION,
-      payload: { id: 1, description: 'Más relevantes', value: 'relevance' },
+      payload: { id: "relevance", name: 'Más relevantes' },
     })
 
     mockDispatch({
@@ -83,7 +83,7 @@ describe('HeaderSearcher', () => {
     })
     expect(mockDispatch).toHaveBeenCalledWith({
       type: GET_SORT_OPTION,
-      payload: { id: 1, description: 'Más relevantes', value: 'relevance' },
+      payload: { id: "relevance", name: 'Más relevantes' },
     })
     expect(mockDispatch).toHaveBeenCalledWith({
       type: GET_PRICE_RANGE_VALUE,

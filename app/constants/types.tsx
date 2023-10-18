@@ -14,9 +14,8 @@ export type productObjectType = {
 }
 
 export type sortOptionsType = {
-  id?: number
-  description?: string
-  value?: string
+  id?: string
+  name?: string
 }
 
 export type filterElementType = {

@@ -45,13 +45,12 @@ const PriceFilter = ({
   const priceFilterRange = useAppSelector(
     (state: RootState) => state.priceRange.value,
   )
-  const sortOption = useAppSelector(
-    (state: RootState) => state.sortOption.option,
+  const selectedSortOption = useAppSelector(
+    (state: RootState) => state.sortOption.value,
   )
   const [priceRange, setPriceRange] = useState<string>('')
   const minimumInputRef = useRef<HTMLInputElement>(null)
   const maximumInputRef = useRef<HTMLInputElement>(null)
-  const { value: sortDescription } = sortOption
 
   /* set price filter */
   useEffect(() => {
@@ -61,7 +60,7 @@ const PriceFilter = ({
         dispatch(
           fetchDataThunk({
             question: inputValue,
-            sort: sortDescription,
+            sort: selectedSortOption,
             priceRange: priceFilterRange,
           }),
         )

@@ -3,7 +3,6 @@ import Image from 'next/image'
 import { Header, SearchInput, SearchButton, ElementsContainer } from './styles'
 import { useAppDispatch } from '@/hooks/useAppDispatch'
 import { GET_SEARCH_INPUT_VALUE } from '@/redux/slices/search-input-slice/types'
-import { GET_SORT_OPTION } from '@/redux/slices/sort-option-slice/types'
 import { GET_PRICE_RANGE_VALUE } from '@/redux/slices/price-range-slice/types'
 import { fetchDataThunk } from '@/redux/slices/search-data-slice/api'
 
@@ -22,11 +21,6 @@ const HeaderSearcher = ({ priceRangeformRef, setPriceRangeSubmit }: Props) => {
     const inputValue = searchInputRef.current?.value || ''
     /* there must be a value in the search input */
     if (inputValue) {
-      /* Sort Selection back to it's default state */
-      dispatch({
-        type: GET_SORT_OPTION,
-        payload: { id: 1, description: 'Más relevantes', value: 'relevance' },
-      })
       /* price filter range back to it's default state */
       dispatch({
         type: GET_PRICE_RANGE_VALUE,

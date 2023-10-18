@@ -30,7 +30,8 @@ describe('PriceFilter component', () => {
       },
       sortOption: {
         option: {
-          value: 'relevance',
+          id: 'relevance',
+          name: 'Más relevantes'
         },
       },
     })
