@@ -3,7 +3,7 @@
 exports[`renders HeaderSearcher component 1`] = `
 <div>
   <header
-    class="sc-beyTiQ duVzVU"
+    class="sc-beyTiQ bvKNlV"
     data-testid="headerContainer"
   >
     <img
@@ -21,10 +21,10 @@ exports[`renders HeaderSearcher component 1`] = `
       class="sc-guDMob dgLuDb"
     >
       <input
-        class="sc-dmyDmy gTgxjX"
+        class="sc-dmyDmy ebTWpy"
       />
       <button
-        class="sc-hLQTFJ fnXdaH"
+        class="sc-hLQTFJ cUOlvm"
         type="submit"
       >
         <img

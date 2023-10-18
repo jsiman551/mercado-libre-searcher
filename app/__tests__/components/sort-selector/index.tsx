@@ -4,12 +4,16 @@ import { Provider } from 'react-redux'
 import { store } from '@/redux/store'
 import useOutsideClick from '@/hooks/useOutsideClick'
 import { useRef } from 'react'
+import { styleTheme } from '@/constants/styles'
+import { ThemeProvider } from 'styled-components'
 
 describe('SortSelector', () => {
   it('renders the sort options selector component', () => {
     render(
       <Provider store={store}>
-        <SortSelector />
+        <ThemeProvider theme={styleTheme}>
+          <SortSelector />
+        </ThemeProvider>
       </Provider>,
     )
     const sortContainer = screen.getByTestId('sortContainer')

@@ -1,5 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import ProductElement from '@/components/product-element'
+import { styleTheme } from '@/constants/styles'
+import { ThemeProvider } from 'styled-components'
 
 export const mockProps = {
   title: 'Casa En Venta En Ecuestre (new)',
@@ -19,7 +21,11 @@ export const mockProps = {
 
 describe('Product Element', () => {
   it('renders Product Element Component with expected content', () => {
-    render(<ProductElement {...mockProps} />)
+    render(
+      <ThemeProvider theme={styleTheme}>
+        <ProductElement {...mockProps} />
+      </ThemeProvider>,
+    )
     const mainElement = screen.getByTestId('productContainer')
 
     expect(mainElement).toBeInTheDocument()

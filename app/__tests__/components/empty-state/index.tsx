@@ -8,6 +8,8 @@ import {
   GET_STARTED,
 } from '@/redux/slices/search-data-slice/types'
 import configureStore from 'redux-mock-store'
+import { ThemeProvider } from 'styled-components'
+import { styleTheme } from '@/constants/styles'
 
 const mockStore = configureStore([])
 const initialState = {
@@ -23,7 +25,9 @@ describe('EmptyState component', () => {
     store.dispatch({ type: GET_STARTED })
     render(
       <Provider store={store}>
-        <EmptyState />
+        <ThemeProvider theme={styleTheme}>
+          <EmptyState />
+        </ThemeProvider>
       </Provider>,
     )
     expect(
@@ -35,7 +39,9 @@ describe('EmptyState component', () => {
     store.dispatch({ type: GET_RESULT_SUCCESS, payload: [] })
     render(
       <Provider store={store}>
-        <EmptyState />
+        <ThemeProvider theme={styleTheme}>
+          <EmptyState />
+        </ThemeProvider>
       </Provider>,
     )
     expect(
@@ -46,7 +52,9 @@ describe('EmptyState component', () => {
   it('renders the initial message when resultData is null and not in loading state', () => {
     render(
       <Provider store={mockedStore}>
-        <EmptyState />
+        <ThemeProvider theme={styleTheme}>
+          <EmptyState />
+        </ThemeProvider>
       </Provider>,
     )
     expect(
@@ -63,7 +71,9 @@ describe('EmptyState component', () => {
     })
     render(
       <Provider store={store}>
-        <EmptyState />
+        <ThemeProvider theme={styleTheme}>
+          <EmptyState />
+        </ThemeProvider>
       </Provider>,
     )
     expect(screen.queryByTestId('emptyResultsContainer')).toBeNull()

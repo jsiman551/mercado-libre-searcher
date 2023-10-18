@@ -4,6 +4,8 @@ import { render, screen } from '@testing-library/react'
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
 import PriceFilter from '@/components/price-filter'
+import { styleTheme } from '@/constants/styles'
+import { ThemeProvider } from 'styled-components'
 
 const mockStore = configureStore([])
 
@@ -31,7 +33,7 @@ describe('PriceFilter component', () => {
       sortOption: {
         option: {
           id: 'relevance',
-          name: 'Más relevantes'
+          name: 'Más relevantes',
         },
       },
     })
@@ -41,11 +43,13 @@ describe('PriceFilter component', () => {
 
     render(
       <Provider store={mockedStore}>
-        <PriceFilter
-          priceRangeformRef={priceRangeformRef}
-          priceRangeSubmit={false}
-          setPriceRangeSubmit={setPriceRangeSubmit}
-        />
+        <ThemeProvider theme={styleTheme}>
+          <PriceFilter
+            priceRangeformRef={priceRangeformRef}
+            priceRangeSubmit={false}
+            setPriceRangeSubmit={setPriceRangeSubmit}
+          />
+        </ThemeProvider>
       </Provider>,
     )
 

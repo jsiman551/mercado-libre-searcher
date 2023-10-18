@@ -3,6 +3,8 @@ import MobileSidebar from '@/components/mobile-sidebar'
 import { Provider } from 'react-redux'
 import { store } from '@/redux/store'
 import 'jest-styled-components'
+import { ThemeProvider } from 'styled-components'
+import { styleTheme } from '@/constants/styles'
 
 describe('MobileSidebar', () => {
   const priceRangeformRef = { current: document.createElement('form') }
@@ -10,11 +12,13 @@ describe('MobileSidebar', () => {
   it('renders MobileSidebar component with initial open state', () => {
     render(
       <Provider store={store}>
-        <MobileSidebar
-          priceRangeformRef={priceRangeformRef}
-          priceRangeSubmit={false}
-          setPriceRangeSubmit={setPriceRangeSubmit}
-        />
+        <ThemeProvider theme={styleTheme}>
+          <MobileSidebar
+            priceRangeformRef={priceRangeformRef}
+            priceRangeSubmit={false}
+            setPriceRangeSubmit={setPriceRangeSubmit}
+          />
+        </ThemeProvider>
       </Provider>,
     )
 
@@ -27,11 +31,13 @@ describe('MobileSidebar', () => {
   it('closes the sidebar when the close button is clicked', () => {
     render(
       <Provider store={store}>
-        <MobileSidebar
-          priceRangeformRef={priceRangeformRef}
-          priceRangeSubmit={false}
-          setPriceRangeSubmit={setPriceRangeSubmit}
-        />
+        <ThemeProvider theme={styleTheme}>
+          <MobileSidebar
+            priceRangeformRef={priceRangeformRef}
+            priceRangeSubmit={false}
+            setPriceRangeSubmit={setPriceRangeSubmit}
+          />
+        </ThemeProvider>
       </Provider>,
     )
 

@@ -36,6 +36,10 @@ const searchDataSlice = createSlice({
   },
 })
 
-export const { getStarted, getResultSuccess, getPriceFiltersSuccess, getSortOptionsSuccess } =
-  searchDataSlice.actions
+export const {
+  getStarted,
+  getResultSuccess,
+  getPriceFiltersSuccess,
+  getSortOptionsSuccess,
+} = searchDataSlice.actions
 export default searchDataSlice.reducer

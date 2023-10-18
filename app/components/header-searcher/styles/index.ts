@@ -4,7 +4,7 @@ import { desktop, tablet } from '@/constants/styles'
 /************Styles For Header Section**************/
 /* Header where searcher is */
 export const Header = styled.header`
-  background: #fee600;
+  background: ${(props) => props.theme.color.mainYellow};
   display: flex;
   align-items: center;
   padding: 0.6rem 1rem 0.6rem 1rem;
@@ -30,7 +30,7 @@ export const ElementsContainer = styled.form`
 /* input to search for items */
 export const SearchInput = styled.input`
   height: 40px;
-  color: #333;
+  color: ${(props) => props.theme.color.charcoalGray};
   padding: 0px 60px 0px 15px;
   border-radius: 4px;
   border-color: rgba(0, 0, 0, 0);
@@ -46,7 +46,7 @@ export const SearchButton = styled.button`
   height: 43px;
   min-width: 50px;
   margin-left: -50px;
-  background: #eeeeee;
+  background: ${(props) => props.theme.color.silverGray};
   border: 0;
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;

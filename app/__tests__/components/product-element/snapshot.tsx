@@ -1,5 +1,7 @@
 import { render } from '@testing-library/react'
 import ProductElement from '@/components/product-element'
+import { styleTheme } from '@/constants/styles'
+import { ThemeProvider } from 'styled-components'
 
 export const mockProps = {
   title: 'Casa En Venta En Ecuestre (new)',
@@ -18,6 +20,10 @@ export const mockProps = {
 }
 
 it('renders Product Element Component', () => {
-  const { container } = render(<ProductElement {...mockProps} />)
+  const { container } = render(
+    <ThemeProvider theme={styleTheme}>
+      <ProductElement {...mockProps} />
+    </ThemeProvider>,
+  )
   expect(container).toMatchSnapshot()
 })

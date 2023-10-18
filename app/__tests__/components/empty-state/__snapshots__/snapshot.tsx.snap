@@ -3,7 +3,7 @@
 exports[`renders EmptyState component 1`] = `
 <div>
   <div
-    class="sc-beyTiQ TyDoB"
+    class="sc-beyTiQ oSrHs"
     data-testid="emptyResultsContainer"
   >
     <p

@@ -4,7 +4,7 @@ import { desktop, mobile, tablet } from '@/constants/styles'
 /************Styles For Articles List Section**************/
 /* product list container */
 export const ProductListContainer = styled.div`
-  background: white;
+  background: ${(props) => props.theme.color.white};
   padding: 1rem;
   border-radius: 4px;
   margin-top: 1rem;
@@ -15,7 +15,7 @@ export const ProductListContainer = styled.div`
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
-  border-bottom: 2px solid #f4f4f4;
+  border-bottom: 2px solid ${(props) => props.theme.color.lightSilverGray};
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   flex-direction: column;
@@ -59,41 +59,41 @@ export const Details = styled.div`
 
 /* tag for product price text */
 export const PriceText = styled.p`
-  color: #333;
-  font-size: 1em;
+  color: ${(props) => props.theme.color.charcoalGray};
+  font-size: ${(props) => props.theme.fontSize.normal};
   margin-bottom: 0;
   display: flex;
   align-items: center;
   @media ${desktop} {
-    font-size: 1.25em;
+    font-size: ${(props) => props.theme.fontSize.large};
   }
 `
 
 /* tag for product Title text */
 export const TitleText = styled.h2`
   margin-bottom: 0;
-  font-size: 1em;
+  font-size: ${(props) => props.theme.fontSize.normal};
   margin-top: 14px;
   font-weight: 400;
   @media ${desktop} {
-    font-size: 1.25em;
+    font-size: ${(props) => props.theme.fontSize.large};
   }
 `
 
 /* tag for product dues text */
 export const DuesText = styled.p`
   margin-bottom: 0;
-  color: #427d2c;
-  font-size: 0.875em;
+  color: ${(props) => props.theme.color.forestGreen};
+  font-size: ${(props) => props.theme.fontSize.regular};
   @media ${desktop} {
-    font-size: 1em;
+    font-size: ${(props) => props.theme.fontSize.normal};
   }
 `
 
 /* tag for product location text */
 export const LocationText = styled.p`
-  color: #8b8b8b;
-  font-size: 0.75em;
+  color: ${(props) => props.theme.color.warmGray};
+  font-size: ${(props) => props.theme.fontSize.regular};
   margin-top: 2rem;
   @media ${mobile} {
     margin-top: 1rem;

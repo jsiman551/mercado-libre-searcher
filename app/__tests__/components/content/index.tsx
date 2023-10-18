@@ -3,6 +3,8 @@ import { render, screen } from '@testing-library/react'
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
 import Content from '@/components/content'
+import { ThemeProvider } from 'styled-components'
+import { styleTheme } from '@/constants/styles'
 
 const mockStore = configureStore([])
 
@@ -33,7 +35,9 @@ describe('Content component', () => {
 
     render(
       <Provider store={Mockedstore}>
-        <Content />
+        <ThemeProvider theme={styleTheme}>
+          <Content />
+        </ThemeProvider>
       </Provider>,
     )
 
@@ -88,7 +92,9 @@ describe('Content component', () => {
 
     render(
       <Provider store={mockResultData}>
-        <Content />
+        <ThemeProvider theme={styleTheme}>
+          <Content />
+        </ThemeProvider>
       </Provider>,
     )
 

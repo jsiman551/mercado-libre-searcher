@@ -8,7 +8,7 @@ export const SidebarOverlay = styled.div<{ $isOpen: boolean }>`
   height: 100%;
   left: 0;
   top: 0;
-  background: white;
+  background: ${(props) => props.theme.color.white};
   z-index: 10;
   box-shadow: 2px 0px 2px rgba(0, 0, 0, 0.25);
   transition: transform 0.5s;
@@ -25,6 +25,6 @@ export const SidebarCloseButton = styled.button`
   background: transparent;
   border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: 4px;
-  font-size: 0.875em;
+  font-size: ${(props) => props.theme.fontSize.regular};
   margin: 0.6rem 0.6rem 0 0;
 `

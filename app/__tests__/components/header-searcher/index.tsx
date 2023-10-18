@@ -5,15 +5,19 @@ import { store } from '@/redux/store'
 import { GET_SORT_OPTION } from '@/redux/slices/sort-option-slice/types'
 import { GET_PRICE_RANGE_VALUE } from '@/redux/slices/price-range-slice/types'
 import { GET_SEARCH_INPUT_VALUE } from '@/redux/slices/search-input-slice/types'
+import { ThemeProvider } from 'styled-components'
+import { styleTheme } from '@/constants/styles'
 
 describe('HeaderSearcher', () => {
   it('renders HeaderSearcher component with elements', () => {
     render(
       <Provider store={store}>
-        <HeaderSearcher
-          priceRangeformRef={{ current: null }}
-          setPriceRangeSubmit={() => {}}
-        />
+        <ThemeProvider theme={styleTheme}>
+          <HeaderSearcher
+            priceRangeformRef={{ current: null }}
+            setPriceRangeSubmit={() => {}}
+          />
+        </ThemeProvider>
       </Provider>,
     )
 
@@ -41,10 +45,12 @@ describe('HeaderSearcher', () => {
   it('dispatches actions on search button click', async () => {
     const { container } = render(
       <Provider store={store}>
-        <HeaderSearcher
-          priceRangeformRef={{ current: null }}
-          setPriceRangeSubmit={() => {}}
-        />
+        <ThemeProvider theme={styleTheme}>
+          <HeaderSearcher
+            priceRangeformRef={{ current: null }}
+            setPriceRangeSubmit={() => {}}
+          />
+        </ThemeProvider>
       </Provider>,
     )
 
@@ -68,7 +74,7 @@ describe('HeaderSearcher', () => {
 
     mockDispatch({
       type: GET_SORT_OPTION,
-      payload: { id: "relevance", name: 'Más relevantes' },
+      payload: { id: 'relevance', name: 'Más relevantes' },
     })
 
     mockDispatch({
@@ -83,7 +89,7 @@ describe('HeaderSearcher', () => {
     })
     expect(mockDispatch).toHaveBeenCalledWith({
       type: GET_SORT_OPTION,
-      payload: { id: "relevance", name: 'Más relevantes' },
+      payload: { id: 'relevance', name: 'Más relevantes' },
     })
     expect(mockDispatch).toHaveBeenCalledWith({
       type: GET_PRICE_RANGE_VALUE,

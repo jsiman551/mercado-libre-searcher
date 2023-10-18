@@ -1,6 +1,4 @@
 import Head from 'next/head'
-import { Provider } from 'react-redux'
-import { store } from '@/redux/store'
 import Content from '@/components/content'
 
 export default function Home() {
@@ -19,11 +17,9 @@ export default function Home() {
           href="https://http2.mlstatic.com/frontend-assets/ml-web-navigation/ui-navigation/5.21.22/mercadolibre/favicon.svg"
         />
       </Head>
-      <Provider store={store}>
-        <main data-testid="mainContainer">
-          <Content />
-        </main>
-      </Provider>
+      <main data-testid="mainContainer">
+        <Content />
+      </main>
     </>
   )
 }

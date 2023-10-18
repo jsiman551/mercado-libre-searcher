@@ -1,6 +1,8 @@
 import { render, screen } from '@testing-library/react'
 import TagIcon from '@/components/tag-icon'
 import 'jest-styled-components'
+import { styleTheme } from '@/constants/styles'
+import { ThemeProvider } from 'styled-components'
 
 /* for Free Shipping Icon */
 const mockProps = {
@@ -11,7 +13,11 @@ const mockProps = {
 
 describe('TagIcon', () => {
   it('renders TagIcon component with expected content for Free Shipping Icon', () => {
-    render(<TagIcon {...mockProps} />)
+    render(
+      <ThemeProvider theme={styleTheme}>
+        <TagIcon {...mockProps} />
+      </ThemeProvider>,
+    )
 
     const tagIconContainer = screen.getByTestId('tagIconContainer')
     expect(tagIconContainer).toBeInTheDocument()

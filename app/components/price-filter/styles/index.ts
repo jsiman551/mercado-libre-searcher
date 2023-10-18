@@ -4,7 +4,7 @@ import { desktop, tablet } from '@/constants/styles'
 /****************Price Filter Styles*********************/
 /* Price Filter Container */
 export const Container = styled.div`
-  font-size: 1em;
+  font-size: ${(props) => props.theme.fontSize.normal};
   box-sizing: border-box;
   padding-right: 1rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.25);
@@ -25,8 +25,8 @@ export const Container = styled.div`
 
 /* Price Label */
 export const Label = styled.h3`
-  color: #333;
-  font-size: 1em;
+  color: ${(props) => props.theme.color.charcoalGray};
+  font-size: ${(props) => props.theme.fontSize.normal};
   font-weight: 600;
   line-height: 1.25;
   margin-bottom: 8px;
@@ -43,7 +43,7 @@ export const RangeElement = styled.li`
   border-collapse: collapse;
   box-sizing: border-box;
   list-style: none;
-  font-size: 0.875em;
+  font-size: ${(props) => props.theme.fontSize.regular};
   margin: 0 0 6px;
   cursor: pointer;
 `
@@ -51,14 +51,14 @@ export const RangeElement = styled.li`
 /* Price Link */
 export const RangeLink = styled.a`
   border-collapse: collapse;
-  font-size: 0.875em;
+  font-size: ${(props) => props.theme.fontSize.regular};
   box-sizing: border-box;
   text-decoration: none;
   display: flex;
   flex-wrap: wrap;
   width: fit-content;
   &:hover span {
-    color: #3483fa;
+    color: ${(props) => props.theme.color.dodgerBlue};
   }
 `
 
@@ -66,9 +66,9 @@ export const RangeLink = styled.a`
 export const RangeLinkName = styled.span`
   border-collapse: collapse;
   box-sizing: border-box;
-  color: #666;
+  color: ${(props) => props.theme.color.dimGray};
   float: left;
-  font-size: 0.875em;
+  font-size: ${(props) => props.theme.fontSize.regular};
   margin-left: 0;
 `
 
@@ -76,15 +76,15 @@ export const RangeLinkName = styled.span`
 export const RangeLinkQuantity = styled.span`
   border-collapse: collapse;
   box-sizing: border-box;
-  color: #999;
+  color: ${(props) => props.theme.color.mediumGray};
   float: left;
-  font-size: 0.875em;
+  font-size: ${(props) => props.theme.fontSize.regular};
   margin-left: 6px;
 `
 
 /* Price Filter Form */
 export const RangeForm = styled.form`
-  font-size: 1em;
+  font-size: ${(props) => props.theme.fontSize.normal};
   line-height: 1.35;
   list-style: none;
   box-sizing: border-box;
@@ -94,17 +94,17 @@ export const RangeForm = styled.form`
 
 /* Price Input Container */
 export const InputContainer = styled.div`
-  font-size: 1em;
+  font-size: ${(props) => props.theme.fontSize.normal};
   align-items: center;
   display: flex;
   &:first-child {
     &:after {
-      color: #999;
+      color: ${(props) => props.theme.color.mediumGray};
       content: '—';
       float: left;
       margin: 0 5px;
       padding: 7px 0;
-      font-size: 0.75em;
+      font-size: ${(props) => props.theme.fontSize.small};
     }
   }
 `
@@ -116,17 +116,17 @@ export const RangeInput = styled.input`
   color: rgba(0, 0, 0, 0.9);
   margin: 0;
   padding: 0.8125em 0.75em;
-  background-color: #fafafa;
+  background-color: ${(props) => props.theme.color.lightGray};
   border-radius: 0.375em;
-  font-size: 0.813em;
+  font-size: ${(props) => props.theme.fontSize.slightlySmaller};
   height: 25px;
   width: 84px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
   &:focus {
     outline: 0;
     box-shadow:
-      inset 0 0 0 1px #fff,
-      0 0 0 1px #2968c8;
+      inset 0 0 0 1px ${(props) => props.theme.color.white},
+      0 0 0 1px ${(props) => props.theme.color.deepBlue};
   }
 `
 
@@ -141,5 +141,8 @@ export const RangeButton = styled.button<{ $active: boolean }>`
   height: 24px;
   margin-left: 8px;
   width: 24px;
-  background-color: ${(props) => (props.$active ? '#3483fa' : '#e0e0e0')};
+  background-color: ${(props) =>
+    props.$active
+      ? props.theme.color.dodgerBlue
+      : props.theme.color.platinumGray};
 `

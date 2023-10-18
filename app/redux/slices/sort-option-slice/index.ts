@@ -7,9 +7,9 @@ interface SearchInputState {
 
 const initialState: SearchInputState = {
   value: {
-    id: "",
-    name: "Selecciona"
-  }
+    id: '',
+    name: 'Selecciona',
+  },
 }
 
 const sortOptionSlice = createSlice({

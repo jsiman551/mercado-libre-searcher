@@ -6,7 +6,7 @@ exports[`Home renders homepage 1`] = `
     data-testid="mainContainer"
   >
     <header
-      class="sc-dmyDmy kleTkG"
+      class="sc-dmyDmy keQzmP"
       data-testid="headerContainer"
     >
       <img
@@ -24,10 +24,10 @@ exports[`Home renders homepage 1`] = `
         class="sc-hLQTFJ lmISJI"
       >
         <input
-          class="sc-eDLKEg khhdpv"
+          class="sc-eDLKEg inOmtK"
         />
         <button
-          class="sc-jTQDJr gYCnUh"
+          class="sc-jTQDJr bAekSU"
           type="submit"
         >
           <img
@@ -44,7 +44,7 @@ exports[`Home renders homepage 1`] = `
       </form>
     </header>
     <div
-      class="sc-beyTiQ TyDoB"
+      class="sc-beyTiQ oSrHs"
       data-testid="emptyResultsContainer"
     >
       <p
@@ -54,20 +54,20 @@ exports[`Home renders homepage 1`] = `
       </p>
     </div>
     <div
-      class="sc-iuONiq cdyfsi"
+      class="sc-iuONiq gtJDMV"
       data-testid="sidebarContainer"
     >
       <button
-        class="sc-cyZbyy jNKGxu"
+        class="sc-cyZbyy dElDGH"
       >
         Cerrar
       </button>
       <div
-        class="sc-gLLuHO fiRPec"
+        class="sc-gLLuHO czAYed"
         data-testid="priceFilterContainer"
       >
         <h3
-          class="sc-iBdoyZ bWBYOl"
+          class="sc-iBdoyZ fWqRpT"
         >
           Precio
         </h3>
@@ -75,31 +75,31 @@ exports[`Home renders homepage 1`] = `
           class="sc-fsYfxw ecjrvm"
         >
           <li
-            class="sc-qZruQ ioreGi"
+            class="sc-qZruQ eLdDQH"
           >
             <form
-              class="sc-csKJRI kKskzZ"
+              class="sc-csKJRI cSAIeg"
             >
               <div
-                class="sc-eTNxZ dJgfro"
+                class="sc-eTNxZ dRFuA-D"
               >
                 <input
-                  class="sc-brSaGm eawDVu"
+                  class="sc-brSaGm iFYCPk"
                   placeholder="Mínimo"
                   type="number"
                 />
               </div>
               <div
-                class="sc-eTNxZ dJgfro"
+                class="sc-eTNxZ dRFuA-D"
               >
                 <input
-                  class="sc-brSaGm eawDVu"
+                  class="sc-brSaGm iFYCPk"
                   placeholder="Máximo"
                   type="number"
                 />
               </div>
               <div
-                class="sc-eTNxZ dJgfro"
+                class="sc-eTNxZ dRFuA-D"
               >
                 <button
                   class="sc-ktwNLz hmGNUd"

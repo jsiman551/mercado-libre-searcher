@@ -3,20 +3,20 @@
 exports[`renders MobileSidebar component 1`] = `
 <div>
   <div
-    class="sc-kFCrIq ccwhSb"
+    class="sc-kFCrIq dJRfaM"
     data-testid="sidebarContainer"
   >
     <button
-      class="sc-irLvoH bBQstO"
+      class="sc-irLvoH fiCQJz"
     >
       Cerrar
     </button>
     <div
-      class="sc-beyTiQ dntuzr"
+      class="sc-beyTiQ hLVtUm"
       data-testid="priceFilterContainer"
     >
       <h3
-        class="sc-guDMob dEpnaU"
+        class="sc-guDMob jQa-dTi"
       >
         Precio
       </h3>
@@ -24,31 +24,31 @@ exports[`renders MobileSidebar component 1`] = `
         class="sc-dmyDmy pJniv"
       >
         <li
-          class="sc-hLQTFJ fBqJzu"
+          class="sc-hLQTFJ hQdWQH"
         >
           <form
-            class="sc-iBdoyZ kMxeqU"
+            class="sc-iBdoyZ dduKxZ"
           >
             <div
-              class="sc-fsYfxw iWgysI"
+              class="sc-fsYfxw eIvdBr"
             >
               <input
-                class="sc-qZruQ jNgvfr"
+                class="sc-qZruQ eVXuZp"
                 placeholder="Mínimo"
                 type="number"
               />
             </div>
             <div
-              class="sc-fsYfxw iWgysI"
+              class="sc-fsYfxw eIvdBr"
             >
               <input
-                class="sc-qZruQ jNgvfr"
+                class="sc-qZruQ eVXuZp"
                 placeholder="Máximo"
                 type="number"
               />
             </div>
             <div
-              class="sc-fsYfxw iWgysI"
+              class="sc-fsYfxw eIvdBr"
             >
               <button
                 class="sc-jsEeA-d bgWXgc"

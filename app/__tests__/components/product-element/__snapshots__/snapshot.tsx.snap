@@ -3,7 +3,7 @@
 exports[`renders Product Element Component 1`] = `
 <div>
   <div
-    class="sc-guDMob iyvFoV"
+    class="sc-guDMob koRIMo"
     data-testid="productContainer"
   >
     <div
@@ -29,24 +29,24 @@ exports[`renders Product Element Component 1`] = `
         class="sc-jTQDJr dmUHMV"
       >
         <p
-          class="sc-gLLuHO brhnQY"
+          class="sc-gLLuHO fmBVjB"
         >
           $ 500
         </p>
         <h2
-          class="sc-iBdoyZ kjSFWv"
+          class="sc-iBdoyZ cnsrTT"
         >
           Casa En Venta En Ecuestre (new) (New)
         </h2>
         <p
-          class="sc-fsYfxw gPyZgP"
+          class="sc-fsYfxw dTWhNO"
         >
           En 3 cuotas de $15.333
         </p>
       </div>
     </div>
     <p
-      class="sc-qZruQ jObgFK"
+      class="sc-qZruQ jHrvoc"
     >
       Costa Esmeralda, Bs.As. Costa Atlántica
     </p>

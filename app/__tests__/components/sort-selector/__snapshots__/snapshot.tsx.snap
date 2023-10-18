@@ -3,11 +3,11 @@
 exports[`renders sort opctions selector unchanged 1`] = `
 <div>
   <div
-    class="sc-d2de8d94-0 fQlvBD"
+    class="sc-d2352733-0 eHjqVo"
     data-testid="sortContainer"
   >
     <button
-      class="sc-d2de8d94-7 dndIoj"
+      class="sc-d2352733-7 gsjXJB"
     >
       <img
         alt="open sidebar"
@@ -21,24 +21,24 @@ exports[`renders sort opctions selector unchanged 1`] = `
       />
     </button>
     <div
-      class="sc-d2de8d94-1 FoZaU"
+      class="sc-d2352733-1 jSoIhH"
     >
       <div
-        class="sc-d2de8d94-2 fURfgz"
+        class="sc-d2352733-2 ewWwLF"
       >
         <p>
           Ordenar por
         </p>
       </div>
       <div
-        class="sc-d2de8d94-3 fJdPS"
+        class="sc-d2352733-3 ispvDT"
       >
         <p>
           Selecciona
         </p>
         <img
           alt="selector"
-          class="sc-d2de8d94-4 heBvGm"
+          class="sc-d2352733-4 iHvwhI"
           height="16"
           src="/icons/arrow-selector-icon.svg"
           width="16"

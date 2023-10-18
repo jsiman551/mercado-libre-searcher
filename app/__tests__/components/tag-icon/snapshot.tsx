@@ -1,5 +1,7 @@
 import { render } from '@testing-library/react'
 import TagIcon from '@/components/tag-icon'
+import { styleTheme } from '@/constants/styles'
+import { ThemeProvider } from 'styled-components'
 
 /* for Free Shipping Icon */
 const mockProps = {
@@ -9,6 +11,10 @@ const mockProps = {
 }
 
 it('renders TagIcon component with expected content for Free Shipping Icon', () => {
-  const { container } = render(<TagIcon {...mockProps} />)
+  const { container } = render(
+    <ThemeProvider theme={styleTheme}>
+      <TagIcon {...mockProps} />
+    </ThemeProvider>,
+  )
   expect(container).toMatchSnapshot()
 })
