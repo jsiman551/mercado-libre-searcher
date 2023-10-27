@@ -7,7 +7,6 @@ import ProductElement from '../product-element'
 import { ProductListContainer } from '../product-element/styles'
 import SortSelector from '../sort-selector'
 import { useAppSelector } from '@/hooks/useAppSelector'
-import { RootState } from '@/redux/store'
 import { ContentContainer, OnlyLongResolutions } from './styles'
 import MobileSidebar from '../mobile-sidebar'
 
@@ -15,7 +14,7 @@ const Content = () => {
   const priceRangeformRef = useRef<HTMLFormElement>(null)
   const [priceRangeSubmit, setPriceRangeSubmit] = useState<boolean>(false)
   const resultData = useAppSelector(
-    (state: RootState) => state.searchData.result,
+    (state) => state.searchData.result,
   )
   return (
     <>

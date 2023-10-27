@@ -15,7 +15,6 @@ import {
   RangeButton,
 } from './styles'
 import { useAppSelector } from '@/hooks/useAppSelector'
-import { RootState } from '@/redux/store'
 import { useAppDispatch } from '@/hooks/useAppDispatch'
 import { GET_FLAG } from '@/redux/slices/sidebar-flag-slice/types'
 import { GET_PRICE_RANGE_VALUE } from '@/redux/slices/price-range-slice/types'
@@ -34,19 +33,19 @@ const PriceFilter = ({
 }: Props) => {
   const dispatch = useAppDispatch()
   const inputValue = useAppSelector(
-    (state: RootState) => state.searchInput.value,
+    (state) => state.searchInput.value,
   )
   const priceFilters = useAppSelector(
-    (state: RootState) => state.searchData.priceFilters,
+    (state) => state.searchData.priceFilters,
   )
   const isSidebarOpen = useAppSelector(
-    (state: RootState) => state.mobileSidebarFlag.flag,
+    (state) => state.mobileSidebarFlag.flag,
   )
   const priceFilterRange = useAppSelector(
-    (state: RootState) => state.priceRange.value,
+    (state) => state.priceRange.value,
   )
   const selectedSortOption = useAppSelector(
-    (state: RootState) => state.sortOption.value,
+    (state) => state.sortOption.value,
   )
   const [priceRange, setPriceRange] = useState<string>('')
   const minimumInputRef = useRef<HTMLInputElement>(null)

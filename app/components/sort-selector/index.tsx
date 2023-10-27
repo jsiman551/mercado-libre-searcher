@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useState, useRef } from 'react'
 import Image from 'next/image'
 import { sortOptionsType } from '@/constants/types'
 import useOutsideClick from '@/hooks/useOutsideClick'
@@ -14,23 +14,22 @@ import {
 } from './styles'
 import { useAppDispatch } from '@/hooks/useAppDispatch'
 import { useAppSelector } from '@/hooks/useAppSelector'
-import { RootState } from '@/redux/store'
 import { GET_FLAG } from '@/redux/slices/sidebar-flag-slice/types'
 import { fetchDataThunk } from '@/redux/slices/search-data-slice/api'
 
 const SortSelector = () => {
   const dispatch = useAppDispatch()
   const inputValue = useAppSelector(
-    (state: RootState) => state.searchInput.value,
+    (state) => state.searchInput.value,
   )
   const priceFilterRange = useAppSelector(
-    (state: RootState) => state.priceRange.value,
+    (state) => state.priceRange.value,
   )
   const sortOptionsArr = useAppSelector(
-    (state: RootState) => state.searchData.sortOptions,
+    (state) => state.searchData.sortOptions,
   )
   const selectedSortOption = useAppSelector(
-    (state: RootState) => state.sortOption.value,
+    (state) => state.sortOption.value,
   )
   const [isSelectorShown, setIsSelectorShown] = useState<boolean>(false)
   const optionsRef = useRef<HTMLDivElement>(null)

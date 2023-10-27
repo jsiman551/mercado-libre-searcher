@@ -3,7 +3,6 @@ import PriceFilter from '../price-filter'
 import { SidebarOverlay, SidebarCloseButton } from './styles'
 import { useAppDispatch } from '@/hooks/useAppDispatch'
 import { useAppSelector } from '@/hooks/useAppSelector'
-import { RootState } from '@/redux/store'
 import { GET_FLAG } from '@/redux/slices/sidebar-flag-slice/types'
 
 interface Props {
@@ -19,7 +18,7 @@ const MobileSidebar = ({
 }: Props) => {
   const dispatch = useAppDispatch()
   const isSidebarOpen = useAppSelector(
-    (state: RootState) => state.mobileSidebarFlag.flag,
+    (state) => state.mobileSidebarFlag.flag,
   )
 
   return (

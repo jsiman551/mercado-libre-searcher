@@ -1,14 +1,13 @@
 import React from 'react'
 import { EmptyResultsContainer, EmptyResultsText } from './styles'
 import { useAppSelector } from '@/hooks/useAppSelector'
-import { RootState } from '@/redux/store'
 
 const EmptyState = () => {
   const loadingState = useAppSelector(
-    (state: RootState) => state.searchData.loading,
+    (state) => state.searchData.loading,
   )
   const resultData = useAppSelector(
-    (state: RootState) => state.searchData.result,
+    (state) => state.searchData.result,
   )
   return (
     <>
